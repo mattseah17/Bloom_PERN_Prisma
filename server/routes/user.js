@@ -11,18 +11,17 @@ const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const auth = require("../middleware/auth");
 
-//Register an account
+//User register
 router.post("/register", async (req, res) => {
   try {
     const hash = await bcrypt.hash(req.body.password, 12);
-    const { email, first_name, last_name, username } = req.body;
+    const { email, username, bio } = req.body;
     const newUser = await prisma.user.create({
       data: {
         email,
         hash,
-        first_name,
-        last_name,
         username,
+        bio
       },
     });
     console.log("created user", newUser);
@@ -101,15 +100,15 @@ router.post("/refresh", (req, res) => {
 });
 
 //Update profile
-router.patch("/update", async (req, res) => {
+router.patch("/update", auth, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({ email: req.decoded.email });
     const updateUser = await prisma.user.update({
       where: { email: req.decoded.email },
       data: {
         email: req.body.email || user.email,
-        first_name: req.body.first_name || user.first_name,
-        last_name: req.body.last_name || user.last_name,
+        username: req.body.username || user.username,
+        bio: req.body.bio || user.bio,
         username: req.body.username || user.username,
       },
     });

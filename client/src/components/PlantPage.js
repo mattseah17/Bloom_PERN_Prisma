@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
 import UpdatePlantmodal from "./UpdatePlantmodal";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import ActionCard from "./ActionCard";
 
-const PlantCard = () => {
-  const [action, setAction] = useState("");
-  const [date, setDate] = useState("");
+const PlantPage = () => {
   const [show, setShow] = useState(false);
   const [plant, setPlant] = useState("");
   const { id } = useParams();
-
-  const handleAction = (e) => {
-    setAction(e.target.value);
-  };
-
-  const handleDate = (e) => {
-    setDate(e.target.value);
-  };
+  const navigate = useNavigate();
 
   const showUpdateModal = () => {
     setShow(true);
@@ -62,8 +54,9 @@ const PlantCard = () => {
         Authorization: "Bearer ", //+ ,
       },
     });
-    const jobs = await res.json();
-    return jobs;
+    const deletedPlant = await res.json();
+    alert(`${deletedPlant.name} is removed`);
+    navigate('/user')
   };
 
   return (
@@ -87,36 +80,7 @@ const PlantCard = () => {
           <button onClick={deletePlant}>Delete</button>
         </div>
       </div>
-      <div>
-        <h1>Add Action</h1>
-        <br />
-        <form>
-          <label>Action Type</label>
-          <select
-            name="level"
-            value={action}
-            onChange={(e) => {
-              handleAction(e);
-            }}
-            required
-          >
-            <option value="null"> </option>
-            <option value="water">Water</option>
-            <option value="fertilise">Fertilise</option>
-            <option value="repot">Re-pot</option>
-          </select>
-          <br />
-          <label>Date</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => {
-              handleDate(e);
-            }}
-            required
-          />
-        </form>
-      </div>
+      <ActionCard />
       {show && (
         <UpdatePlantmodal
           title="Update Plant Details"
@@ -130,4 +94,4 @@ const PlantCard = () => {
   );
 };
 
-export default PlantCard;
+export default PlantPage;

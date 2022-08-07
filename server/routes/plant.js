@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require("uuid");
 const auth = require("../middleware/auth");
 
 //Create new plant
-router.post("/create", async (req, res) => {
+router.post("/create", auth, async (req, res) => {
   try {
     const {
       name,
@@ -45,7 +45,7 @@ router.post("/create", async (req, res) => {
 });
 
 //Show my plants
-router.get("/myList", async (req, res) => {
+router.get("/myList", auth, async (req, res) => {
   try {
     const myPosts = await prisma.user.findMany({
       select: { posts: true },
@@ -61,7 +61,7 @@ router.get("/myList", async (req, res) => {
 });
 
 //Show a plant
-router.get("/:id", async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const plant = await prisma.plant.findUnique({
@@ -78,7 +78,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //Update plant
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const {
@@ -113,7 +113,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 //Delete plant
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const deletePost = await prisma.plant.delete({

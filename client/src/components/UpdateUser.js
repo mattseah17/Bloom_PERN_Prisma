@@ -40,7 +40,7 @@ const UpdateUser = () => {
   // Handling form update
   const updatePersonal = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:5001/api/parent/registration`, {
+    let result = await fetch(`http://localhost:5002/user/update`, {
       headers: {
         "Content-Type": "Application/json",
         Authorization: "Bearer ", //+ ,
