@@ -13,7 +13,7 @@ const NavBar = () => {
             <NavLink to="/user/add">Add Plant</NavLink>
           </li>
           <li>
-            <NavLink to="/user/update">Update Profile</NavLink>
+            <NavLink to="/user/update">Profile</NavLink>
           </li>
         </ul>
       </nav>
