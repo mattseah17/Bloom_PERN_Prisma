@@ -1,16 +1,10 @@
 import React, { useState } from "react";
+import UpdatePlantmodal from "./UpdatePlantmodal";
 
 const PlantCard = (props) => {
-  const [plantname, setPlantname] = useState(props.name);
-  const [description, setDescription] = useState(props.description);
-  const [type, setType] = useState(props.type);
-  const [location, setLocation] = useState(props.location);
-  const [waterFreq, setWaterfreq] = useState(props.water_freq);
-  const [fertiliseFreq, setFertilisefreq] = useState(props.fertilise_freq);
-  const [repotFreq, setRepotfreq] = useState(props.repot_freq);
   const [action, setAction] = useState("");
   const [date, setDate] = useState("");
-  const [update, setUpdate] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleAction = (e) => {
     setAction(e.target.value);
@@ -20,12 +14,11 @@ const PlantCard = (props) => {
     setDate(e.target.value);
   };
 
-  const updatePlantForm = () => {
-    setUpdate(true);
+  const showUpdateModal = () => {
+    setShow(true);
   };
 
-  const editPlant = () => {
-    setUpdate(false);
+  const updatePlant = () => {
   };
 
   const deletePlant = () => {};
@@ -34,18 +27,18 @@ const PlantCard = (props) => {
     <>
       <div>
         <div>
-          <h2>{plantname}</h2>
+          <h2>{props.plantname}</h2>
         </div>
         <div>
-          <p>{description}</p>
-          <p>{type}</p>
-          <p>{location}</p>
-          <p>{waterFreq}</p>
-          <p>{fertiliseFreq}</p>
-          <p>{repotFreq}</p>
+          <p>{props.description}</p>
+          <p>{props.type}</p>
+          <p>{props.location}</p>
+          <p>{props.waterFreq}</p>
+          <p>{props.fertiliseFreq}</p>
+          <p>{props.repotFreq}</p>
         </div>
         <div>
-          <button onClick={updatePlantForm}>Edit</button>
+          <button onClick={showUpdateModal}>Edit</button>
         </div>
         <div>
           <button onClick={deletePlant}>Delete</button>
@@ -81,6 +74,14 @@ const PlantCard = (props) => {
           />
         </form>
       </div>
+      {show && (
+        <UpdatePlantmodal
+          title="Confirmation"
+          message="Are you sure you want to create this job assignment?"
+          show={show}
+          onClick={updatePlant}
+        />
+      )}
     </>
   );
 };
