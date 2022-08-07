@@ -7,6 +7,7 @@ const LandingPage = React.lazy(() => import("./components/Landing"));
 const Homepage = React.lazy(() => import("./components/UserHome"));
 const AddPlant = React.lazy(() => import("./components/AddPlant"));
 const UpdateUser = React.lazy(() => import("./components/UpdateUser"));
+const PlantCard = React.lazy(() => import("./components/PlantCard"));
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/user" element={<Homepage />} />
               <Route path="/user/add" element={<AddPlant />} />
               <Route path="/user/update" element={<UpdateUser />} />
+              <Route path="/plant/:id" element={<PlantCard />} />
             </Routes>
           </Suspense>
         </main>

@@ -4,13 +4,11 @@ import PlantCards from "./Results";
 const Userhome = () => {
   const [plantsList, setPlantsList] = useState([]);
 
-  const plantList = async (input) => {
-    if (input) {
-      const plantApi = ``;
-      const res = await fetch(plantApi);
-      const plantsData = await res.json();
-      setPlantsList(plantsData);
-    }
+  const plantList = async () => {
+    const plantApi = `http://localhost:5002/plant/myList`;
+    const res = await fetch(plantApi);
+    const plantsData = await res.json();
+    setPlantsList(plantsData);
   };
 
   useEffect(() => {

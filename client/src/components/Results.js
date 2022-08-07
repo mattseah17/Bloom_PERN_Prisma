@@ -1,10 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PlantCards = (props) => {
+  const navigate = useNavigate();
+
+  const fetchPlant = (plantId) => {
+    navigate(`/plant/${plantId}`);
+  };
+
   const plants = props.data.map((d) => {
     return (
       <>
-        <div>
+        <div
+          onClick={() => {
+            fetchPlant(d.id);
+          }}
+        >
           <div id={d.id} key={d.id}>
             {/* <img src={d.image} alt="" /> */}
           </div>
