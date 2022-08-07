@@ -59,104 +59,106 @@ const AddPlant = () => {
 
   return (
     <>
-      <h1>Add A New Plant</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
+      <div>
+        <h1>Add A New Plant</h1>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <label>Plant name </label>
-            <input
-              id="plantname"
-              name="plantname"
-              onChange={(e) => {
-                handlePlantName(e);
-              }}
-              type="text"
-              placeholder="Plant name"
-              value={plantname}
-              required
-            />
+            <div>
+              <label>Plant name </label>
+              <input
+                id="plantname"
+                name="plantname"
+                onChange={(e) => {
+                  handlePlantName(e);
+                }}
+                type="text"
+                placeholder="Plant name"
+                value={plantname}
+                required
+              />
+            </div>
+            <div>
+              <label>Plant description </label>
+              <input
+                id="description"
+                name="description"
+                onChange={(e) => {
+                  handleDescription(e);
+                }}
+                type="text"
+                placeholder="Description"
+                value={description}
+              />
+            </div>
+            <div>
+              <label>Plant type </label>
+              <input
+                id="type"
+                name="type"
+                onChange={(e) => {
+                  handleType(e);
+                }}
+                type="text"
+                placeholder="Type"
+                value={type}
+              />
+            </div>
+            <div>
+              <label>Location </label>
+              <input
+                id="location"
+                name="location"
+                onChange={(e) => {
+                  handleLocation(e);
+                }}
+                type="text"
+                placeholder="Where it grows best"
+                value={location}
+              />
+            </div>
+            <div>
+              <label>Water Frequency </label>
+              <input
+                id="waterFreq"
+                name="waterFreq"
+                onChange={(e) => {
+                  handleWater(e);
+                }}
+                type="text"
+                placeholder="How often does it need to be watered?"
+                value={waterFreq}
+              />
+            </div>
+            <div>
+              <label>Fertiliser Frequency </label>
+              <input
+                id="fertiliseFreq"
+                name="fertiliseFreq"
+                onChange={(e) => {
+                  handleFertiliser(e);
+                }}
+                type="text"
+                placeholder="How often does ferilisers need to be added?"
+                value={fertiliseFreq}
+              />
+            </div>
+            <div>
+              <label>Re-pot Frequency </label>
+              <input
+                id="repotFreq"
+                name="repotFreq"
+                onChange={(e) => {
+                  handleRepot(e);
+                }}
+                type="text"
+                placeholder="How often does it need to be re-potted?"
+                value={repotFreq}
+              />
+            </div>
+            <button>Submit</button>
           </div>
-          <div>
-            <label>Plant description </label>
-            <input
-              id="description"
-              name="description"
-              onChange={(e) => {
-                handleDescription(e);
-              }}
-              type="text"
-              placeholder="Description"
-              value={description}
-            />
-          </div>
-          <div>
-            <label>Plant type </label>
-            <input
-              id="type"
-              name="type"
-              onChange={(e) => {
-                handleType(e);
-              }}
-              type="text"
-              placeholder="Type"
-              value={type}
-            />
-          </div>
-          <div>
-            <label>Location </label>
-            <input
-              id="location"
-              name="location"
-              onChange={(e) => {
-                handleLocation(e);
-              }}
-              type="text"
-              placeholder="Where it grows best"
-              value={location}
-            />
-          </div>
-          <div>
-            <label>Water Frequency </label>
-            <input
-              id="waterFreq"
-              name="waterFreq"
-              onChange={(e) => {
-                handleWater(e);
-              }}
-              type="text"
-              placeholder="How often does it need to be watered?"
-              value={waterFreq}
-            />
-          </div>
-          <div>
-            <label>Fertiliser Frequency </label>
-            <input
-              id="fertiliseFreq"
-              name="fertiliseFreq"
-              onChange={(e) => {
-                handleFertiliser(e);
-              }}
-              type="text"
-              placeholder="How often does ferilisers need to be added?"
-              value={fertiliseFreq}
-            />
-          </div>
-          <div>
-            <label>Re-pot Frequency </label>
-            <input
-              id="repotFreq"
-              name="repotFreq"
-              onChange={(e) => {
-                handleRepot(e);
-              }}
-              type="text"
-              placeholder="How often does it need to be re-potted?"
-              value={repotFreq}
-            />
-          </div>
-          <button>Submit</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };
