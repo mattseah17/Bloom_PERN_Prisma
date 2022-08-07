@@ -18,7 +18,26 @@ const PlantCard = (props) => {
     setShow(true);
   };
 
-  const updatePlant = () => {
+  const updatePlant = async (input) => {
+    let result = await fetch(`http://localhost:5001/api/parent/registration`, {
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: "Bearer ", //+ ,
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        name: input.plantname,
+        description: input.description,
+        type: input.type,
+        location: input.location,
+        water_freq: input.waterFreq,
+        fertilise_freq: input.fertiliseFreq,
+        repot_freq: input.repotFreq,
+      }),
+    });
+    const data = await result.json();
+    console.log(data);
+    setShow(false);
   };
 
   const deletePlant = () => {};
@@ -76,8 +95,7 @@ const PlantCard = (props) => {
       </div>
       {show && (
         <UpdatePlantmodal
-          title="Confirmation"
-          message="Are you sure you want to create this job assignment?"
+          title="Update Plant Details"
           show={show}
           onClick={updatePlant}
         />
