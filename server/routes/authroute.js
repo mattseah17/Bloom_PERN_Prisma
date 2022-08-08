@@ -41,7 +41,6 @@ router.post("/login", async (req, res) => {
     });
 
     const response = { access, refresh };
-
     res.json(response);
   } catch (error) {
     console.log("POST /login", error);

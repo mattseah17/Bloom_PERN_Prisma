@@ -16,8 +16,6 @@ const Login = () => {
 
   async function loginUser(e) {
     e.preventDefault();
-    setInput({ email: "", password: "" });
-
     try {
       const response = await login(input);
       if (response.user) {
@@ -34,9 +32,9 @@ const Login = () => {
         <h1>Login to your account</h1>
       </div>
       <div>
-        <form onSubmit={(e) => loginUser(e)}>
-          <div className="input-group mb-3">
-            <div className="form-floating">
+        <form onSubmit={loginUser}>
+          <div>
+            <div>
               <label htmlFor="email">Email</label>
               <input
                 type="email"

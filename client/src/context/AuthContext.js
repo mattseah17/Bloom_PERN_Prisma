@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect, useContext } from "react";
 
-/* #region  User info context provider */
+//User Info Context provider
 const AuthStateContext = React.createContext();
 
 export function useAuthState() {
@@ -10,9 +10,9 @@ export function useAuthState() {
   }
   return context;
 }
-/* #endregion */
 
-/* #region  Auth Context Dispatch providers */
+
+//Auth Context Dispatch provider
 const AuthDispatchContext = React.createContext();
 
 export function useUpdateAuthContext() {
@@ -22,9 +22,9 @@ export function useUpdateAuthContext() {
   }
   return context;
 }
-/* #endregion */
 
-/* #region  Declare User & Token */
+
+//Declare User & Token
 let user = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser")).user
   : "";
@@ -32,10 +32,9 @@ let user = localStorage.getItem("currentUser")
 let token = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser")).accessToken
   : "";
-/* #endregion */
 
-/* #region  AuthReducer & Initial State */
 
+//AuthReducer & Initial State
 const initialState = {
   email: "Stranger" || user,
   token: "" || token,
@@ -92,9 +91,9 @@ export const AuthReducer = (initialState, action) => {
       throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
-/* #endregion */
 
-// AuthProvider State & API interactions
+
+//AuthProvider State & API interactions
 export function AuthProvider({ children }) {
   const [user, dispatch] = useReducer(AuthReducer, initialState);
 
@@ -119,7 +118,7 @@ export function AuthProvider({ children }) {
         localStorage.setItem(
           "currentUser",
           JSON.stringify({
-            user: data.email,
+            email: data.email,
             token: data.accessToken,
             id: data.id,
           })
