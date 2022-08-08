@@ -30,7 +30,7 @@ const Userhome = () => {
       }
     }
     getUserInfo();
-  }, []);
+  }, [id, token]);
 
   const logout = useUpdateAuthContext().logoutUser;
   const navigate = useNavigate();

@@ -29,7 +29,7 @@ const PlantPage = () => {
       setPlant(plantData);
     };
     getPlant();
-  }, []);
+  }, [id, token]);
 
   const updatePlant = async (input) => {
     let result = await fetch(`http://localhost:5002/plant/${input.id}`, {
