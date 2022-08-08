@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server/server.js",
-    "liveauth": "nodemon server/authserver.js"
+    "dev": "nodemon server.js",
+    "liveauth": "nodemon Authserver.js"
   },
   "keywords": [],
   "author": "",
