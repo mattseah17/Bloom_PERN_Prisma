@@ -3,56 +3,64 @@ import { useNavigate } from "react-router-dom";
 import { useUpdateAuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
-  //states for login
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [input, setInput] = useState({ email: "", password: "" });
+
+  function handleChange(event) {
+    event.preventDefault();
+    const { id, value } = event.target;
+    setInput({ ...input, [id]: value });
+  }
+
   const login = useUpdateAuthContext().loginUser;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  //handling changes
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  async function loginUser(event) {
+    event.preventDefault();
+    setInput({ email: "", password: "" });
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+    const response = await login(input);
+    if (response.user) {
+      navigate("/home");
+    }
+  }
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-  };
-  
   return (
     <>
       <div>
         <h1>Login to your account</h1>
       </div>
-      <form onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Your email"
-          value={email}
-          onChange={handleEmail}
-          required
-        />
-        <br></br>
-        <label>Password:</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={handlePassword}
-          required
-        />
-        <div>
-          <button id="submit" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+      <div>
+        <form onSubmit={loginUser}>
+          <div className="input-group mb-3">
+            <div className="form-floating">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={input.email}
+                onChange={handleChange}
+                autoFocus={true}
+              />
+              <label htmlFor="email">Email</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={input.password}
+                onChange={handleChange}
+              />
+              <label htmlFor="password">Password</label>
+            </div>
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
     </>
   );
 };
