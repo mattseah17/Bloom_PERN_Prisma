@@ -11,17 +11,16 @@ const UpdateUser = () => {
   const { token, id } = useAuthState().user;
   const navigate = useNavigate();
 
-  const getPersonalDetails = async () => {
-    let fetchResult = await fetch(`http://localhost:5002/user/${id}`);
-    console.log(fetchResult);
-    const result = await fetchResult.json();
-    setEmail(result.email);
-    setPassword(result.password);
-    setUsername(result.username);
-    setBio(result.bio);
-  };
-
   useEffect(() => {
+    const getPersonalDetails = async () => {
+      let fetchResult = await fetch(`http://localhost:5002/user/${id}`);
+      console.log(fetchResult);
+      const result = await fetchResult.json();
+      setEmail(result.email);
+      setPassword(result.password);
+      setUsername(result.username);
+      setBio(result.bio);
+    };
     getPersonalDetails();
   }, []);
 
@@ -42,7 +41,7 @@ const UpdateUser = () => {
   // Handling form update
   const updatePersonal = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:5002/user/${id}/update`, {
+    let result = await fetch(`http://localhost:5002/user/${id}`, {
       headers: {
         "Content-Type": "Application/json",
         Authorization: `Bearer ${token}`,

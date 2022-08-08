@@ -13,7 +13,7 @@ const Userhome = () => {
 
   useEffect(() => {
     async function getUserInfo() {
-      const url = "http://localhost:5002/user/" + id;
+      const url = `http://localhost:5002/user/${id}`;
       const requestOptions = {
         method: "GET",
         headers: {

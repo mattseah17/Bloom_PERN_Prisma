@@ -60,11 +60,11 @@ router.get("/:id", auth, async (req, res) => {
 });
 
 //Update profile
-router.patch("/:id/update", auth, async (req, res) => {
+router.patch("/:id", auth, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({ id: req.params.id });
-    const updateUser = await prisma.user.update({
-      where: { email: req.decoded.id },
+    const updatedUser = await prisma.user.update({
+      where: { id: req.decoded.id },
       data: {
         email: req.body.email || user.email,
         username: req.body.username || user.username,
@@ -72,7 +72,7 @@ router.patch("/:id/update", auth, async (req, res) => {
         username: req.body.username || user.username,
       },
     });
-    res.json(updateUser);
+    res.json(updatedUser);
   } catch (error) {
     console.log("PATCH/update", error);
     res.status(401).json({
