@@ -15,14 +15,19 @@ const PlantPage = () => {
     setShow(true);
   };
 
-  const getPlant = async () => {
-    const plantApi = `http://localhost:5002/plant/${id}`;
-    const res = await fetch(plantApi);
-    const plantData = await res.json();
-    setPlant(plantData);
-  };
-
   useEffect(() => {
+    const getPlant = async () => {
+      const plantApi = `http://localhost:5002/plant/${id}`;
+      const res = await fetch(plantApi, {
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: "GET",
+      });
+      const plantData = await res.json();
+      setPlant(plantData);
+    };
     getPlant();
   }, []);
 
@@ -53,7 +58,7 @@ const PlantPage = () => {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authorization: "Bearer ", //+ ,
+        Authorization: `Bearer ${token}`,
       },
     });
     const deletedPlant = await res.json();
@@ -76,10 +81,22 @@ const PlantPage = () => {
           <p>{plant.repotFreq}</p>
         </div>
         <div>
-          <button onClick={showUpdateModal}>Edit</button>
+          <button
+            onClick={() => {
+              showUpdateModal();
+            }}
+          >
+            Edit
+          </button>
         </div>
         <div>
-          <button onClick={deletePlant}>Delete</button>
+          <button
+            onClick={() => {
+              deletePlant();
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
       <ActionCard />

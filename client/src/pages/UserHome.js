@@ -26,11 +26,11 @@ const Userhome = () => {
         const data = await response.json();
         setUserInfo({ email: data.email });
       } catch (err) {
-        // console.log(err.message);
+        console.log(err.message);
       }
     }
     getUserInfo();
-  }, [id]);
+  }, []);
 
   const logout = useUpdateAuthContext().logoutUser;
   const navigate = useNavigate();
