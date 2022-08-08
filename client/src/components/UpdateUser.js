@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuthState } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {
@@ -7,12 +8,13 @@ const UpdateUser = () => {
   const [bio, setBio] = useState();
   const [password, setPassword] = useState();
 
+  const { token, id } = useAuthState().user;
   const navigate = useNavigate();
 
   const getPersonalDetails = async () => {
-    let result = await fetch(`http://localhost:5001/parent/registration`);
-    console.log(result);
-    result = await result.json();
+    let fetchResult = await fetch(`http://localhost:5002/user/${id}`);
+    console.log(fetchResult);
+    const result = await fetchResult.json();
     setEmail(result.email);
     setPassword(result.password);
     setUsername(result.username);
@@ -40,10 +42,10 @@ const UpdateUser = () => {
   // Handling form update
   const updatePersonal = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:5002/user/update`, {
+    let result = await fetch(`http://localhost:5002/user/${id}/update`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: "Bearer ", //+ ,
+        Authorization: `Bearer ${token}`,
       },
       method: "PATCH",
       body: JSON.stringify({
@@ -56,7 +58,8 @@ const UpdateUser = () => {
     const data = await result.json();
     console.log(data);
     if (data) {
-      navigate("/parent/jobs");
+      alert("Details updated");
+      navigate("/home");
     }
   };
 

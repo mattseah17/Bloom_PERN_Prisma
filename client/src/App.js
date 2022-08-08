@@ -1,42 +1,31 @@
 import "./App.css";
-import React, { useState, Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import UserContext from "./hooks/UserContext";
-
-const LandingPage = React.lazy(() => import("./components/Landing"));
-const Homepage = React.lazy(() => import("./components/UserHome"));
-const AddPlant = React.lazy(() => import("./components/AddPlant"));
-const UpdateUser = React.lazy(() => import("./components/UpdateUser"));
-const PlantCard = React.lazy(() => import("./components/PlantCard"));
-const Login = React.lazy(() => import("./components/Login"));
-const Register = React.lazy(() => import("./components/Register"));
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [access, setAccess] = useState("");
-  const [refresh, setRefresh] = useState("");
+  const navigate = useNavigate();
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
 
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
   return (
     <>
-      <UserContext.Provider value={{ access, setAccess, refresh, setRefresh }}>
+      <header>
         <div>
-          <main>
-            <Suspense fallback={<p>Loading...</p>}>
-              <NavBar />
-              <Routes>
-                <Route path="/" element={<Navigate replace to="/landing" />} />
-                <Route path="/landing" element={<LandingPage />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/user" element={<Homepage />} />
-                <Route path="/user/add" element={<AddPlant />} />
-                <Route path="/user/update" element={<UpdateUser />} />
-                <Route path="/plant/:id" element={<PlantCard />} />
-              </Routes>
-            </Suspense>
-          </main>
+          <div>Bloom</div>
+          <p>Introducing Bloom:</p>
+          <p>Blah blah</p>
         </div>
-      </UserContext.Provider>
+        <div>
+          <button onClick={handleLoginClick}>Login</button>
+        </div>
+        <div>
+          <button onClick={handleRegisterClick}>Register</button>
+        </div>
+      </header>
     </>
   );
 }

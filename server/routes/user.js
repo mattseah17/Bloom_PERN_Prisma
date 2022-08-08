@@ -60,11 +60,11 @@ router.get("/:id", auth, async (req, res) => {
 });
 
 //Update profile
-router.patch("/update", auth, async (req, res) => {
+router.patch("/:id/update", auth, async (req, res) => {
   try {
-    const user = await prisma.user.findUnique({ email: req.decoded.email });
+    const user = await prisma.user.findUnique({ id: req.params.id });
     const updateUser = await prisma.user.update({
-      where: { email: req.decoded.email },
+      where: { email: req.decoded.id },
       data: {
         email: req.body.email || user.email,
         username: req.body.username || user.username,
