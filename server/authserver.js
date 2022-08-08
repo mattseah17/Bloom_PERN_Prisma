@@ -8,14 +8,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const user = require("./routes/user");
-app.use("/user", user);
 
-const plant = require("./routes/plant");
-app.use("/plant", plant);
+const authroute = require("./routes/authroute");
+app.use("/auth", authroute);
 
 
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.AUTH_PORT || 5003;
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT}`);
 });
