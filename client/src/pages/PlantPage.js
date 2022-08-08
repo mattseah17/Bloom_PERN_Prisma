@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "../context/AuthContext";
-import UpdatePlantmodal from "./UpdatePlantmodal";
+import UpdatePlantmodal from "../components/UpdatePlantmodal";
 import { useParams, useNavigate } from "react-router-dom";
-import ActionCard from "./ActionCard";
+import ActionCard from "../components/ActionCard";
 
 const PlantPage = () => {
   const [show, setShow] = useState(false);

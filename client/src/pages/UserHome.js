@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState, useUpdateAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import PlantCards from "./Results";
+import PlantCards from "../components/Results";
 
 const Userhome = () => {
   const { token, id } = useAuthState().user;

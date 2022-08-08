@@ -7,10 +7,10 @@ import App from "./App";
 import SharedLayout from "./components/SharedLayout";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import UserHome from "./components/UserHome";
+import UserHome from "./pages/UserHome";
 import AddPlant from "./pages/AddPlant";
 import UpdateUser from "./pages/UpdateUser";
-import PlantPage from "./components/PlantPage";
+import PlantPage from "./pages/PlantPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
