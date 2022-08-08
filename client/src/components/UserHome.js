@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState, useUpdateAuthContext } from "../contexts/AuthContext";
+import { useAuthState, useUpdateAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import PlantCards from "./Results";
 

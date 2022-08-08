@@ -15,9 +15,12 @@ function App() {
     <>
       <header>
         <div>
-          <div>Bloom</div>
-          <p>Introducing Bloom:</p>
-          <p>Blah blah</p>
+          <div>
+            <h1>Bloom</h1>
+          </div>
+          <div>
+            <p>Blah blah</p>
+          </div>
         </div>
         <div>
           <button onClick={handleLoginClick}>Login</button>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useAuthState } from "../contexts/AuthContext";
+import { useAuthState } from "../context/AuthContext";
 import NavBar from "../components/NavBar";
 
 const SharedLayout = () => {

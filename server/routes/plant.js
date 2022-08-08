@@ -44,21 +44,6 @@ router.post("/create", auth, async (req, res) => {
   }
 });
 
-// //Show my plants
-// router.get("/myList", auth, async (req, res) => {
-//   try {
-//     const myPosts = await prisma.user.findMany({
-//       select: { posts: true },
-//     });
-//     res.json(myPosts);
-//   } catch (error) {
-//     console.log("GET/myList", error);
-//     res.status(401).json({
-//       status: "error",
-//       message: "plants list not able to show",
-//     });
-//   }
-// });
 
 //Show a plant
 router.get("/:id", auth, async (req, res) => {
@@ -132,3 +117,19 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 module.exports = router;
+
+// //Show my plants
+// router.get("/myList", auth, async (req, res) => {
+//   try {
+//     const myPosts = await prisma.user.findMany({
+//       select: { posts: true },
+//     });
+//     res.json(myPosts);
+//   } catch (error) {
+//     console.log("GET/myList", error);
+//     res.status(401).json({
+//       status: "error",
+//       message: "plants list not able to show",
+//     });
+//   }
+// });

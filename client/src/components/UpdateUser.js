@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useAuthState } from "../contexts/AuthContext";
+import { useAuthState } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {

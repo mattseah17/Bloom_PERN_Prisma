@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "../context/AuthContext";
 import UpdatePlantmodal from "./UpdatePlantmodal";
 import { useParams, useNavigate } from "react-router-dom";
 import ActionCard from "./ActionCard";
@@ -8,6 +9,7 @@ const PlantPage = () => {
   const [plant, setPlant] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
+  const { token } = useAuthState().user;
 
   const showUpdateModal = () => {
     setShow(true);
@@ -28,7 +30,7 @@ const PlantPage = () => {
     let result = await fetch(`http://localhost:5002/plant/${input.id}`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: "Bearer ", //+ ,
+        Authorization: `Bearer ${token}`,
       },
       method: "PATCH",
       body: JSON.stringify({
@@ -56,7 +58,7 @@ const PlantPage = () => {
     });
     const deletedPlant = await res.json();
     alert(`${deletedPlant.name} is removed`);
-    navigate('/user')
+    navigate("/user");
   };
 
   return (
