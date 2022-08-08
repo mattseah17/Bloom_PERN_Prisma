@@ -9,6 +9,8 @@ const Homepage = React.lazy(() => import("./components/UserHome"));
 const AddPlant = React.lazy(() => import("./components/AddPlant"));
 const UpdateUser = React.lazy(() => import("./components/UpdateUser"));
 const PlantCard = React.lazy(() => import("./components/PlantCard"));
+const Login = React.lazy(() => import("./components/Login"));
+const Register = React.lazy(() => import("./components/Register"));
 
 function App() {
   const [access, setAccess] = useState("");
@@ -24,6 +26,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate replace to="/landing" />} />
                 <Route path="/landing" element={<LandingPage />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/user" element={<Homepage />} />
                 <Route path="/user/add" element={<AddPlant />} />
                 <Route path="/user/update" element={<UpdateUser />} />

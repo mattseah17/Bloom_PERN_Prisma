@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
+  const navigate = useNavigate()
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -32,7 +34,7 @@ const Register = () => {
     };
 
     const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/form";
+    const endpoint = "http://localhost:5002/user/register";
     const options = {
       method: "POST",
       headers: {
@@ -43,6 +45,7 @@ const Register = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     console.log(result);
+    navigate("/login")
   };
 
   return (

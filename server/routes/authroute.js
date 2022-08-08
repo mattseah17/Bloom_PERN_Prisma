@@ -76,4 +76,10 @@ router.post("/refresh", (req, res) => {
   }
 });
 
+router.delete("/logout", (req, res) => {
+  refreshTokens = refreshTokens.filter((token) => token != req.body.token);
+  res.status(204);
+  console.log(refreshTokens);
+});
+
 module.exports = router;

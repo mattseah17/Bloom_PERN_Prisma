@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUpdateAuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
   //states for login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const login = useUpdateAuthContext().loginUser;
+  const navigate = useNavigate()
 
   //handling changes
   const handleEmail = (e) => {
