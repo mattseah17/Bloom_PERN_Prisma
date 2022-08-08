@@ -1,19 +1,39 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState, useUpdateAuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import PlantCards from "./Results";
 
 const Userhome = () => {
-  const [plantsList, setPlantsList] = useState([]);
+  const { token, id } = useAuthState().user;
 
-  const plantList = async () => {
-    const plantApi = `http://localhost:5002/plant/myList`;
-    const res = await fetch(plantApi);
-    const plantsData = await res.json();
-    setPlantsList(plantsData);
+  const initUserInfo = {
+    email: "",
   };
+  const [userInfo, setUserInfo] = useState(initUserInfo);
 
   useEffect(() => {
-    plantList();
-  }, []);
+    async function getUserInfo() {
+      const url = "http://localhost:5002/user/" + id;
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const response = await fetch(url, requestOptions);
+        const data = await response.json();
+        setUserInfo({ email: data.email });
+      } catch (err) {
+        // console.log(err.message);
+      }
+    }
+    getUserInfo();
+  }, [id]);
+
+  const logout = useUpdateAuthContext().logoutUser;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,11 +41,20 @@ const Userhome = () => {
         <div>
           <h1>My Dashboard</h1>
         </div>
-        {plantsList.length === 0 ? (
+        <h2>Contact me at {userInfo.email}</h2>
+        <button
+          onClick={() => {
+            logout();
+            navigate("/landing");
+          }}
+        >
+          Log Out
+        </button>
+        {userInfo.posts.length === 0 ? (
           <h2>You have not added any plants</h2>
         ) : (
           <div>
-            <PlantCards data={plantsList} />
+            <PlantCards data={userInfo.posts} />
           </div>
         )}
       </div>
