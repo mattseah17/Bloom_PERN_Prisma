@@ -13,13 +13,13 @@ const auth = require("../middleware/auth");
 
 //User register
 router.post("/register", async (req, res) => {
-  const user = await prisma.user.findFirst({ email: email });
-  if (user) {
-    return res.send({
-      status: 409,
-      message: "Email is linked to existing account",
-    });
-  }
+  // const user = await prisma.user.findFirst({ email: email });
+  // if (user) {
+  //   return res.send({
+  //     status: 409,
+  //     message: "Email is linked to existing account",
+  //   });
+  // }
   try {
     const hash = await bcrypt.hash(req.body.password, 12);
     const { email, username, bio } = req.body;

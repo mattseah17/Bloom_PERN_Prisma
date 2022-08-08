@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -45,7 +45,7 @@ const Register = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     console.log(result);
-    navigate("/login")
+    navigate("/login");
   };
 
   return (
@@ -58,7 +58,7 @@ const Register = () => {
             <input
               id="email"
               name="email"
-              type="text"
+              type="email"
               onChange={(e) => handleEmail(e)}
               placeholder="Your email"
               value={email}

@@ -30,9 +30,10 @@ const Login = () => {
         <h1>Login to your account</h1>
       </div>
       <div>
-        <form onSubmit={loginUser}>
+        <form onSubmit={(e) => loginUser(e)}>
           <div className="input-group mb-3">
             <div className="form-floating">
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 name="email"
@@ -42,11 +43,11 @@ const Login = () => {
                 onChange={handleChange}
                 autoFocus={true}
               />
-              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div>
             <div>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 name="password"
@@ -55,7 +56,6 @@ const Login = () => {
                 value={input.password}
                 onChange={handleChange}
               />
-              <label htmlFor="password">Password</label>
             </div>
           </div>
           <button type="submit">Log In</button>
