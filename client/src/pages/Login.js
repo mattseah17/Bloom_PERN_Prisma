@@ -5,22 +5,26 @@ import { useUpdateAuthContext } from "../context/AuthContext";
 const Login = () => {
   const [input, setInput] = useState({ email: "", password: "" });
 
-  function handleChange(event) {
-    event.preventDefault();
-    const { id, value } = event.target;
+  function handleChange(e) {
+    e.preventDefault();
+    const { id, value } = e.target;
     setInput({ ...input, [id]: value });
   }
 
   const login = useUpdateAuthContext().loginUser;
   const navigate = useNavigate();
 
-  async function loginUser(event) {
-    event.preventDefault();
+  async function loginUser(e) {
+    e.preventDefault();
     setInput({ email: "", password: "" });
 
-    const response = await login(input);
-    if (response.user) {
-      navigate("/home");
+    try {
+      const response = await login(input);
+      if (response.user) {
+        navigate("/user");
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 
