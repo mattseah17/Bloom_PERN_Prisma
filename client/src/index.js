@@ -5,11 +5,11 @@ import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import SharedLayout from "./components/SharedLayout";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import UserHome from "./components/UserHome";
-import AddPlant from "./components/AddPlant";
-import UpdateUser from "./components/UpdateUser";
+import AddPlant from "./pages/AddPlant";
+import UpdateUser from "./pages/UpdateUser";
 import PlantPage from "./components/PlantPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
