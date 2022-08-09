@@ -48,7 +48,7 @@ function App() {
                 <Route path="/update" element={<UpdateUser />} />
                 <Route path="/add" element={<AddPlant />} />
                 <Route path="/plant/:id" element={<PlantPage />} />
-                <Route path="/plantupdate/:id" element={<UpdatePlant />} />
+                <Route path="/update/:id" element={<UpdatePlant />} />
               </Routes>
             </Suspense>
           </main>

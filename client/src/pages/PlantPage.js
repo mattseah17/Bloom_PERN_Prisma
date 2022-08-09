@@ -9,6 +9,10 @@ const PlantPage = () => {
   const reactCtx = useContext(ReactContext);
   const navigate = useNavigate();
 
+  const goUpdatePlantPage = () => {
+    navigate(`/update/${id}`);
+  };
+
   useEffect(() => {
     const getPlant = async () => {
       const plantApi = `http://localhost:5002/plant/${id}`;
@@ -53,7 +57,7 @@ const PlantPage = () => {
           <p>{plant.repot_freq}</p>
         </div>
         <div>
-          <button onClick={navigate(`/plantupdate/${id}`)}>Edit</button>
+          <button onClick={goUpdatePlantPage}>Edit</button>
         </div>
         <div>
           <button
