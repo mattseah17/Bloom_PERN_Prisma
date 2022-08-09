@@ -114,7 +114,7 @@ router.post("/refresh", (req, res) => {
 //Get user stuff
 router.get("/:id", auth, async (req, res) => {
   try {
-    const getUser = await prisma.user.findUnique({
+    const getUser = await prisma.user.findFirst({
       where: {
         id: req.params.id,
       },

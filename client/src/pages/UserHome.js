@@ -3,7 +3,7 @@ import ReactContext from "../context/reactcontext";
 import PlantCards from "../components/Results";
 
 const Userhome = () => {
-  const [userData, setUserData] = useState([]);
+  const [userPlants, setUserPlants] = useState([]);
   const reactCtx = useContext(ReactContext);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Userhome = () => {
       try {
         const response = await fetch(url, requestOptions);
         const data = await response.json();
-        setUserData(data.posts);
+        setUserPlants(data.posts);
       } catch (err) {
         console.log(err.message);
       }
@@ -35,11 +35,11 @@ const Userhome = () => {
         </div>
         <h2>Contact me at {reactCtx.loginEmail}</h2>
         <br />
-        {userData.length === 0 ? (
+        {userPlants.length === 0 ? (
           <h2>You have not added any plants</h2>
         ) : (
           <div>
-            <PlantCards data={userData} />
+            <PlantCards data={userPlants} />
           </div>
         )}
       </div>

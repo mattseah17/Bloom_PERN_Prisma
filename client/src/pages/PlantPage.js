@@ -21,7 +21,7 @@ const PlantPage = () => {
       const res = await fetch(plantApi, {
         headers: {
           "Content-Type": "Application/json",
-          Authorization: `Bearer`, //token,
+          Authorization: `Bearer ${reactCtx.access}`,
         },
         method: "GET",
       });
@@ -29,13 +29,13 @@ const PlantPage = () => {
       setPlant(plantData);
     };
     getPlant();
-  }, []);
+  }, [id, reactCtx.access]);
 
   const updatePlant = async (input) => {
-    let result = await fetch(`http://localhost:5002/plant/${input.id}`, {
+    let result = await fetch(`http://localhost:5002/plant/${id}`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: `Bearer`, //token,
+        Authorization: `Bearer ${reactCtx.access}`,
       },
       method: "PATCH",
       body: JSON.stringify({
@@ -68,7 +68,7 @@ const PlantPage = () => {
 
   return (
     <>
-      <div>
+      <div id={id}>
         <div>
           <h2>{plant.plantname}</h2>
         </div>
@@ -103,6 +103,7 @@ const PlantPage = () => {
       {show && (
         <UpdatePlantmodal
           title="Update Plant Details"
+          id={id}
           show={show}
           onClick={() => {
             updatePlant(plant);

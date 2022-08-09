@@ -34,7 +34,7 @@ const OverLay = (props) => {
   };
 
   const getPlantDetails = async () => {
-    let result = await fetch(`http://localhost:5002/plant/registration`);
+    let result = await fetch(`http://localhost:5002/plant/${props.id}`);
     console.log(result);
     result = await result.json();
     setPlantname(result.name);
@@ -178,7 +178,7 @@ const UpdatePlantmodal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <OverLay title={props.title} onClick={props.onClick} />,
+        <OverLay id={props.id} title={props.title} onClick={props.onClick} />,
         document.querySelector("#modal-root")
       )}
     </>
