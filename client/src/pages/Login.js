@@ -17,8 +17,9 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  const handleLogin = async () => {
-    const bod = JSON.stringify({
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const JSONData = JSON.stringify({
       email: email,
       password: password,
     });
@@ -29,7 +30,7 @@ const Login = () => {
         "Content-Type": "Application/json",
         Authorization: "Bearer " + reactCtx.access,
       },
-      body: bod,
+      body: JSONData,
     };
 
     try {

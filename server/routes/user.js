@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
     });
 
     const response = { access, refresh, id: payload.id };
-    console.log(response);
+    // console.log(response);
     console.log("login successful");
     res.json(response);
   } catch (error) {
