@@ -118,4 +118,26 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+//Add a plant action
+router.put("/:id", auth, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { type, action_date } = req.body;
+    const newAction = await prisma.plant.create({
+      data: {
+        type,
+        action_date,
+        plant: { connect: { id: id } }, //id is the plantId
+      },
+    });
+    res.json(newAction);
+  } catch (error) {
+    console.log("POST/create action", error);
+    res.status(401).json({
+      status: "error",
+      message: "plant action not created",
+    });
+  }
+});
+
 module.exports = router;

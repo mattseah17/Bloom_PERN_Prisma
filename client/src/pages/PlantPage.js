@@ -69,7 +69,7 @@ const PlantPage = () => {
           </button>
         </div>
       </div>
-      <PlantAction />
+      <PlantAction plantId={id}/>
     </>
   );
 };
