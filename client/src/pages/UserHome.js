@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
-import PlantCards from "../components/Results";
+import PlantArray from "../components/Results";
 
 const Userhome = () => {
   const [userPlants, setUserPlants] = useState([]);
@@ -39,7 +39,7 @@ const Userhome = () => {
           <h2>You have not added any plants</h2>
         ) : (
           <div>
-            <PlantCards data={userPlants} />
+            <PlantArray data={userPlants} />
           </div>
         )}
       </div>

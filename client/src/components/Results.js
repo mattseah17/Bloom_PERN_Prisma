@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const PlantCards = (props) => {
+const PlantArray = (props) => {
   const navigate = useNavigate();
 
   const fetchPlant = (plantId) => {
@@ -30,4 +30,4 @@ const PlantCards = (props) => {
   return <div>{plants}</div>;
 };
 
-export default PlantCards;
+export default PlantArray;
