@@ -4,6 +4,7 @@ import PlantArray from "../components/PlantArray";
 
 const Userhome = () => {
   const [userPlants, setUserPlants] = useState([]);
+  const [bio, setBio] = useState(bio);
   const reactCtx = useContext(ReactContext);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Userhome = () => {
         const response = await fetch(url, requestOptions);
         const data = await response.json();
         setUserPlants(data.posts);
+        setBio(data.bio)
       } catch (err) {
         console.log(err.message);
       }
@@ -32,6 +34,10 @@ const Userhome = () => {
       <div>
         <div>
           <h1>My Dashboard</h1>
+        </div>
+        <div>
+          <h2>About Me</h2>
+          <p>{bio}</p>
         </div>
         <h2>Contact me at {reactCtx.loginEmail}</h2>
         <br />

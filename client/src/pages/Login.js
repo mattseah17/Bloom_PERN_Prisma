@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const reactCtx = useContext(ReactContext);
-  const navigate = useNavigate();
 
   //handling changes
   const handleEmail = (event) => {
@@ -55,7 +54,6 @@ const Login = () => {
       reactCtx.setLoginEmail(email);
       reactCtx.setId(id);
       reactCtx.setLoginState(true);
-      navigate("/home");
       // alert("Logged in");
     } catch (err) {
       // setError(err.message);
@@ -91,7 +89,7 @@ const Login = () => {
           />
           <div>
             <button id="submit" type="submit">
-              Login
+              <NavLink to="/home">Login</NavLink>
             </button>
           </div>
         </form>
