@@ -32,7 +32,7 @@ const Login = () => {
       body: bod,
     };
     try {
-      const res = await fetch('http://localhost:5002/user/login', options);
+      const res = await fetch("http://localhost:5002/user/login", options);
       console.log(res);
       console.log(options);
 
@@ -52,7 +52,7 @@ const Login = () => {
       reactCtx.setRefresh(refresh_token);
       reactCtx.setLoginEmail(email);
       reactCtx.setLoginState(true);
-      navigate("/home")
+      navigate("/home");
       // alert("Logged in");
     } catch (err) {
       // setError(err.message);
@@ -67,7 +67,7 @@ const Login = () => {
       </div>
       <div>
         <form onSubmit={handleLogin}>
-          <label> Email:</label>
+          <label>Email: </label>
           <input
             id="email"
             type="email"
@@ -77,7 +77,7 @@ const Login = () => {
             required
           />
           <br></br>
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             id="password"
             type="password"
