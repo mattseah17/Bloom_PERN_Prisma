@@ -1,19 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
-import UpdatePlantmodal from "../components/UpdatePlantmodal";
 import { useParams, useNavigate } from "react-router-dom";
 import ActionCard from "../components/ActionCard";
 
 const PlantPage = () => {
-  const [show, setShow] = useState(false);
   const [plant, setPlant] = useState("");
   const { id } = useParams();
   const reactCtx = useContext(ReactContext);
   const navigate = useNavigate();
-
-  const showUpdateModal = () => {
-    setShow(true);
-  };
 
   useEffect(() => {
     const getPlant = async () => {
@@ -31,63 +25,35 @@ const PlantPage = () => {
     getPlant();
   }, [id, reactCtx.access]);
 
-  const updatePlant = async (input) => {
-    let result = await fetch(`http://localhost:5002/plant/${id}`, {
-      headers: {
-        "Content-Type": "Application/json",
-        Authorization: `Bearer ${reactCtx.access}`,
-      },
-      method: "PATCH",
-      body: JSON.stringify({
-        name: input.plantname,
-        description: input.description,
-        type: input.type,
-        location: input.location,
-        water_freq: input.waterFreq,
-        fertilise_freq: input.fertiliseFreq,
-        repot_freq: input.repotFreq,
-      }),
-    });
-    const data = await result.json();
-    console.log(data);
-    setShow(false);
-  };
-
   const deletePlant = async () => {
     const res = await fetch(`http://localhost:5002/plant/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer`, //token,
+        Authorization: `Bearer ${reactCtx.access}`,
       },
     });
     const deletedPlant = await res.json();
     alert(`${deletedPlant.name} is removed`);
-    navigate("/user");
+    navigate("/home");
   };
 
   return (
     <>
       <div id={id}>
         <div>
-          <h2>{plant.plantname}</h2>
+          <h2>{plant.name}</h2>
         </div>
         <div>
           <p>{plant.description}</p>
           <p>{plant.type}</p>
           <p>{plant.location}</p>
-          <p>{plant.waterFreq}</p>
-          <p>{plant.fertiliseFreq}</p>
-          <p>{plant.repotFreq}</p>
+          <p>{plant.water_req}</p>
+          <p>{plant.fertilise_freq}</p>
+          <p>{plant.repot_freq}</p>
         </div>
         <div>
-          <button
-            onClick={() => {
-              showUpdateModal();
-            }}
-          >
-            Edit
-          </button>
+          <button onClick={navigate(`/plantupdate/${id}`)}>Edit</button>
         </div>
         <div>
           <button
@@ -100,16 +66,6 @@ const PlantPage = () => {
         </div>
       </div>
       <ActionCard />
-      {show && (
-        <UpdatePlantmodal
-          title="Update Plant Details"
-          id={id}
-          show={show}
-          onClick={() => {
-            updatePlant(plant);
-          }}
-        />
-      )}
     </>
   );
 };

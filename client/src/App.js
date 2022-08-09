@@ -11,6 +11,7 @@ const UserHome = React.lazy(() => import("./pages/UserHome"));
 const UpdateUser = React.lazy(() => import("./pages/UpdateUser"));
 const AddPlant = React.lazy(() => import("./pages/AddPlant"));
 const PlantPage = React.lazy(() => import("./pages/PlantPage"));
+const UpdatePlant = React.lazy(() => import("./pages/UpdatePlant"));
 
 function App() {
   const [access, setAccess] = useState("");
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/update" element={<UpdateUser />} />
                 <Route path="/add" element={<AddPlant />} />
                 <Route path="/plant/:id" element={<PlantPage />} />
+                <Route path="/plantupdate/:id" element={<UpdatePlant />} />
               </Routes>
             </Suspense>
           </main>
