@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
-import PlantArray from "../components/Results";
+import PlantArray from "../components/PlantArray";
 
 const Userhome = () => {
   const [userPlants, setUserPlants] = useState([]);
