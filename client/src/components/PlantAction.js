@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ActionCard = () => {
+const PlantAction = () => {
   const [action, setAction] = useState("");
   const [date, setDate] = useState("");
 
@@ -15,7 +15,9 @@ const ActionCard = () => {
   return (
     <>
       <div>
-        <h1>Add Action</h1>
+        <div>
+          <h1>Add Action</h1>
+        </div>
         <br />
         <form>
           <label>Action Type</label>
@@ -48,4 +50,4 @@ const ActionCard = () => {
   );
 };
 
-export default ActionCard;
+export default PlantAction;

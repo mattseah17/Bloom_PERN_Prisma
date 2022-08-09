@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
 import { useParams, useNavigate } from "react-router-dom";
-import ActionCard from "../components/ActionCard";
+import PlantAction from "../components/PlantAction";
 
 const PlantPage = () => {
   const [plant, setPlant] = useState("");
@@ -69,7 +69,7 @@ const PlantPage = () => {
           </button>
         </div>
       </div>
-      <ActionCard />
+      <PlantAction />
     </>
   );
 };
