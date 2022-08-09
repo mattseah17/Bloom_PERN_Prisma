@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState, useUpdateAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import PlantCards from "../components/Results";
 
 const Userhome = () => {
-  const { token, id } = useAuthState().user;
-
   const initUserInfo = {
     email: "",
   };
@@ -18,7 +15,7 @@ const Userhome = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer`, //token,
         },
       };
       try {
@@ -30,9 +27,8 @@ const Userhome = () => {
       }
     }
     getUserInfo();
-  }, [id, token]);
+  }, []);
 
-  const logout = useUpdateAuthContext().logoutUser;
   const navigate = useNavigate();
 
   return (
@@ -42,14 +38,7 @@ const Userhome = () => {
           <h1>My Dashboard</h1>
         </div>
         <h2>Contact me at {userInfo.email}</h2>
-        <button
-          onClick={() => {
-            logout();
-            navigate("/landing");
-          }}
-        >
-          Log Out
-        </button>
+        <br />
         {userInfo.posts.length === 0 ? (
           <h2>You have not added any plants</h2>
         ) : (

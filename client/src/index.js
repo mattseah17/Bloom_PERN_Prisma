@@ -1,36 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import { AuthProvider } from "./context/AuthContext";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
-import SharedLayout from "./components/SharedLayout";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import UserHome from "./pages/UserHome";
-import AddPlant from "./pages/AddPlant";
-import UpdateUser from "./pages/UpdateUser";
-import PlantPage from "./pages/PlantPage";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<SharedLayout />}>
-            <Route path="/user" element={<UserHome />} />
-            <Route path="/user/update" element={<UpdateUser />} />
-            <Route path="/user/add" element={<AddPlant />} />
-            <Route path="/plant/:id" element={<PlantPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
-  </React.StrictMode>
+import "./index.css";
+import App from "./App";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

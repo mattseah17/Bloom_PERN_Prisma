@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "../context/AuthContext";
 import UpdatePlantmodal from "../components/UpdatePlantmodal";
 import { useParams, useNavigate } from "react-router-dom";
 import ActionCard from "../components/ActionCard";
@@ -9,7 +8,6 @@ const PlantPage = () => {
   const [plant, setPlant] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
-  const { token } = useAuthState().user;
 
   const showUpdateModal = () => {
     setShow(true);
@@ -21,7 +19,7 @@ const PlantPage = () => {
       const res = await fetch(plantApi, {
         headers: {
           "Content-Type": "Application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer`, //token,
         },
         method: "GET",
       });
@@ -29,13 +27,13 @@ const PlantPage = () => {
       setPlant(plantData);
     };
     getPlant();
-  }, [id, token]);
+  }, []);
 
   const updatePlant = async (input) => {
     let result = await fetch(`http://localhost:5002/plant/${input.id}`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer`, //token,
       },
       method: "PATCH",
       body: JSON.stringify({
@@ -58,7 +56,7 @@ const PlantPage = () => {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer`, //token,
       },
     });
     const deletedPlant = await res.json();

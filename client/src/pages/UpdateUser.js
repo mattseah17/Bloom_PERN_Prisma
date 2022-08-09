@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useAuthState } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {
@@ -8,7 +7,6 @@ const UpdateUser = () => {
   const [bio, setBio] = useState();
   const [password, setPassword] = useState();
 
-  const { token, id } = useAuthState().user;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,7 +42,7 @@ const UpdateUser = () => {
     let result = await fetch(`http://localhost:5002/user/${id}`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer`, //token,
       },
       method: "PATCH",
       body: JSON.stringify({

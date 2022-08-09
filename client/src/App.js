@@ -3,34 +3,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-  const navigate = useNavigate();
-  const handleLoginClick = () => {
-    navigate("/login");
-  };
-
-  const handleRegisterClick = () => {
-    navigate("/register");
-  };
-  return (
-    <>
-      <header>
-        <div>
-          <div>
-            <h1>Bloom</h1>
-          </div>
-          <div>
-            <p>Blah blah</p>
-          </div>
-        </div>
-        <div>
-          <button onClick={handleLoginClick}>Login</button>
-        </div>
-        <div>
-          <button onClick={handleRegisterClick}>Register</button>
-        </div>
-      </header>
-    </>
-  );
+  
 }
 
 export default App;
+
+//<Routes>
+{/* <Route path="/" element={<App />} />
+<Route path="/register" element={<Register />} />
+<Route path="/login" element={<Login />} />
+<Route path="/" element={<SharedLayout />}>
+  <Route path="/user" element={<UserHome />} />
+  <Route path="/user/update" element={<UpdateUser />} />
+  <Route path="/user/add" element={<AddPlant />} />
+  <Route path="/plant/:id" element={<PlantPage />} />
+</Route>
+</Routes> */}

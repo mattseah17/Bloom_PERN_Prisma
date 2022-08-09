@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useAuthState } from "../context/AuthContext";
 
 const AddPlant = () => {
   const [plantname, setPlantname] = useState("");
@@ -9,8 +8,6 @@ const AddPlant = () => {
   const [waterFreq, setWaterfreq] = useState("");
   const [fertiliseFreq, setFertilisefreq] = useState("");
   const [repotFreq, setRepotfreq] = useState("");
-
-  const { token } = useAuthState().user;
 
   const handlePlantName = (e) => {
     setPlantname(e.target.value);
@@ -52,7 +49,7 @@ const AddPlant = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer`, //token,
       },
       body: JSONdata,
     };

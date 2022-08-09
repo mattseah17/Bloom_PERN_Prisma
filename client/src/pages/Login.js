@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUpdateAuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [input, setInput] = useState({ email: "", password: "" });
@@ -11,19 +10,8 @@ const Login = () => {
     setInput({ ...input, [id]: value });
   }
 
-  const login = useUpdateAuthContext().loginUser;
-  const navigate = useNavigate();
-
   async function loginUser(e) {
     e.preventDefault();
-    try {
-      const response = await login(input);
-      if (response.user) {
-        navigate("/user");
-      }
-    } catch (err) {
-      console.log(err);
-    }
   }
 
   return (
