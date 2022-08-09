@@ -13,10 +13,18 @@ const UpdateUser = () => {
 
   useEffect(() => {
     const getPersonalDetails = async () => {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization: "Bearer " + reactCtx.access,
+        },
+      };
+
       let fetchResult = await fetch(
-        `http://localhost:5002/user/${reactCtx.id}`
+        `http://localhost:5002/user/${reactCtx.id}`,
+        options
       );
-      console.log(fetchResult);
       const result = await fetchResult.json();
       setEmail(result.email);
       setPassword(result.password);
@@ -24,7 +32,7 @@ const UpdateUser = () => {
       setBio(result.bio);
     };
     getPersonalDetails();
-  }, [reactCtx.id]);
+  }, []);
 
   //Handling changes
   const handleEmail = (e) => {
@@ -43,7 +51,7 @@ const UpdateUser = () => {
   // Handling form update
   const updatePersonal = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:5002/user/${reactCtx.id}`, {
+    const result = await fetch(`http://localhost:5002/user/${reactCtx.id}`, {
       headers: {
         "Content-Type": "Application/json",
         Authorization: `Bearer ${reactCtx.access}`,
@@ -51,7 +59,6 @@ const UpdateUser = () => {
       method: "PATCH",
       body: JSON.stringify({
         email: email,
-        password: password,
         username: username,
         bio: bio,
       }),
@@ -59,7 +66,6 @@ const UpdateUser = () => {
     const data = await result.json();
     console.log(data);
     if (data) {
-      alert("Details updated");
       navigate("/home");
     }
   };

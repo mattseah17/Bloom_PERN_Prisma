@@ -137,17 +137,22 @@ router.get("/:id", auth, async (req, res) => {
 
 //Update profile
 router.patch("/:id", auth, async (req, res) => {
+  const user = await prisma.user.findFirst({
+    where: {
+      id: req.params.id,
+    },
+  });
+  console.log(user);
   try {
-    const user = await prisma.user.findUnique({ id: req.params.id });
     const updatedUser = await prisma.user.update({
-      where: { id: req.decoded.id },
+      where: { id: req.params.id },
       data: {
         email: req.body.email || user.email,
         username: req.body.username || user.username,
         bio: req.body.bio || user.bio,
-        username: req.body.username || user.username,
       },
     });
+    console.log(updatedUser);
     res.json(updatedUser);
   } catch (error) {
     console.log("PATCH/update", error);

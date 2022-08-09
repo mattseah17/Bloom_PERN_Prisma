@@ -29,7 +29,7 @@ const NavBar = () => {
             <>
               <ul>
                 <li>
-                  <NavLink to="/user">Home</NavLink>
+                  <NavLink to="/home">Home</NavLink>
                 </li>
                 <li>
                   <NavLink to="/update">Profile</NavLink>

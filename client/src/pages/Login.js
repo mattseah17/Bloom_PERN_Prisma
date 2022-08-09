@@ -54,9 +54,6 @@ const Login = () => {
       reactCtx.setId(id);
       reactCtx.setLoginState(true);
 
-      console.log(reactCtx.loginEmail);
-      console.log(reactCtx.id);
-      console.log(reactCtx.loginState);
       navigate("/home");
       // alert("Logged in");
     } catch (err) {
