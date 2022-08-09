@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ReactContext from "../context/reactcontext";
 import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {
@@ -6,12 +7,15 @@ const UpdateUser = () => {
   const [email, setEmail] = useState();
   const [bio, setBio] = useState();
   const [password, setPassword] = useState();
+  const reactCtx = useContext(ReactContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const getPersonalDetails = async () => {
-      let fetchResult = await fetch(`http://localhost:5002/user/${id}`);
+      let fetchResult = await fetch(
+        `http://localhost:5002/user/${reactCtx.id}`
+      );
       console.log(fetchResult);
       const result = await fetchResult.json();
       setEmail(result.email);
@@ -20,7 +24,7 @@ const UpdateUser = () => {
       setBio(result.bio);
     };
     getPersonalDetails();
-  }, []);
+  }, [reactCtx.id]);
 
   //Handling changes
   const handleEmail = (e) => {
@@ -39,10 +43,10 @@ const UpdateUser = () => {
   // Handling form update
   const updatePersonal = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:5002/user/${id}`, {
+    let result = await fetch(`http://localhost:5002/user/${reactCtx.id}`, {
       headers: {
         "Content-Type": "Application/json",
-        Authorization: `Bearer`, //token,
+        Authorization: `Bearer ${reactCtx.access}`,
       },
       method: "PATCH",
       body: JSON.stringify({
