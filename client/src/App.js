@@ -15,6 +15,7 @@ const PlantPage = React.lazy(() => import("./pages/PlantPage"));
 function App() {
   const [access, setAccess] = useState("");
   const [refresh, setRefresh] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
   const [loginState, setLoginState] = useState(false);
 
   return (
@@ -25,6 +26,8 @@ function App() {
           setAccess,
           refresh,
           setRefresh,
+          loginEmail,
+          setLoginEmail,
           loginState,
           setLoginState,
         }}
@@ -37,9 +40,9 @@ function App() {
                 <Route path="/" element={<Landing />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/user" element={<UserHome />} />
-                <Route path="/user/update" element={<UpdateUser />} />
-                <Route path="/user/add" element={<AddPlant />} />
+                <Route path="/home" element={<UserHome />} />
+                <Route path="/update" element={<UpdateUser />} />
+                <Route path="/add" element={<AddPlant />} />
                 <Route path="/plant/:id" element={<PlantPage />} />
               </Routes>
             </Suspense>
