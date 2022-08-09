@@ -22,16 +22,19 @@ router.post("/create", auth, async (req, res) => {
       water_freq,
       fertilise_freq,
       repot_freq,
+      userId,
     } = req.body;
+
     const newPost = await prisma.plant.create({
       data: {
-        name: name,
-        description: description,
-        type: type,
-        location: location,
-        water_freq: water_freq,
-        fertilise_freq: fertilise_freq,
-        repot_freq: repot_freq,
+        name,
+        description,
+        type,
+        location,
+        water_freq,
+        fertilise_freq,
+        repot_freq,
+        author: { connect: { id: userId } },
       },
     });
     res.json(newPost);
@@ -48,7 +51,7 @@ router.post("/create", auth, async (req, res) => {
 router.get("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
-    const plant = await prisma.plant.findUnique({
+    const plant = await prisma.plant.findFirst({
       where: { id: id },
     });
     res.json(plant);

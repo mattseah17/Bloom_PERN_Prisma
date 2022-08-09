@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
+import { useNavigate } from "react-router-dom";
 
 const AddPlant = () => {
   const [plantname, setPlantname] = useState("");
@@ -9,7 +10,9 @@ const AddPlant = () => {
   const [waterFreq, setWaterfreq] = useState("");
   const [fertiliseFreq, setFertilisefreq] = useState("");
   const [repotFreq, setRepotfreq] = useState("");
+
   const reactCtx = useContext(ReactContext);
+  const navigate = useNavigate();
 
   const handlePlantName = (e) => {
     setPlantname(e.target.value);
@@ -43,6 +46,7 @@ const AddPlant = () => {
       water_freq: waterFreq,
       fertilise_freq: fertiliseFreq,
       repot_freq: repotFreq,
+      userId: reactCtx.id,
     };
 
     const JSONdata = JSON.stringify(data);
@@ -58,6 +62,8 @@ const AddPlant = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     console.log(result);
+    alert("Plant added!");
+    navigate("/home");
   };
 
   return (
