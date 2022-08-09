@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ReactContext from "../context/reactcontext";
 
 const AddPlant = () => {
   const [plantname, setPlantname] = useState("");
@@ -8,6 +9,7 @@ const AddPlant = () => {
   const [waterFreq, setWaterfreq] = useState("");
   const [fertiliseFreq, setFertilisefreq] = useState("");
   const [repotFreq, setRepotfreq] = useState("");
+  const reactCtx = useContext(ReactContext);
 
   const handlePlantName = (e) => {
     setPlantname(e.target.value);
@@ -49,7 +51,7 @@ const AddPlant = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer`, //token,
+        Authorization: `Bearer ${reactCtx.access}`,
       },
       body: JSONdata,
     };
@@ -156,7 +158,7 @@ const AddPlant = () => {
                 value={repotFreq}
               />
             </div>
-            <button>Submit</button>
+            <button>Add plant</button>
           </div>
         </form>
       </div>

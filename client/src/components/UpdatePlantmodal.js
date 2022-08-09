@@ -34,7 +34,7 @@ const OverLay = (props) => {
   };
 
   const getPlantDetails = async () => {
-    let result = await fetch(`http://localhost:5001/parent/registration`);
+    let result = await fetch(`http://localhost:5002/plant/registration`);
     console.log(result);
     result = await result.json();
     setPlantname(result.name);

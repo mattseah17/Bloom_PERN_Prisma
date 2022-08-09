@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import ReactContext from "../context/reactcontext";
 import UpdatePlantmodal from "../components/UpdatePlantmodal";
 import { useParams, useNavigate } from "react-router-dom";
 import ActionCard from "../components/ActionCard";
@@ -7,6 +8,7 @@ const PlantPage = () => {
   const [show, setShow] = useState(false);
   const [plant, setPlant] = useState("");
   const { id } = useParams();
+  const reactCtx = useContext(ReactContext);
   const navigate = useNavigate();
 
   const showUpdateModal = () => {
