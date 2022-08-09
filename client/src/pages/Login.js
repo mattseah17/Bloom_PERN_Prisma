@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const reactCtx = useContext(ReactContext);
+  const navigate = useNavigate();
 
   //handling changes
   const handleEmail = (event) => {
@@ -25,8 +26,8 @@ const Login = () => {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + reactCtx.access,
+        "Content-Type": "Application/json",
+        Authorization: "Bearer " + reactCtx.access,
       },
       body: bod,
     };
@@ -36,24 +37,26 @@ const Login = () => {
       console.log(res);
       console.log(options);
 
-      if (res.status !== 200) {
-        window.alert("Please Register");
-        throw new Error("Something went wrong.");
-      }
-
       const data = await res.json();
-      // setData(data);
-      console.log(data); // this returns both access and refresh tokens as part of the data object
+      // console.log(data);
+
       const access_token = data.access;
-      const refresh_token = data.refresh;
-      const id = data.id;
       console.log(access_token);
+      const refresh_token = data.refresh;
       console.log(refresh_token);
+      const id = data.id;
+      console.log(id);
+
       reactCtx.setAccess(access_token);
       reactCtx.setRefresh(refresh_token);
       reactCtx.setLoginEmail(email);
       reactCtx.setId(id);
       reactCtx.setLoginState(true);
+
+      console.log(reactCtx.loginEmail);
+      console.log(reactCtx.id);
+      console.log(reactCtx.loginState);
+      navigate("/home");
       // alert("Logged in");
     } catch (err) {
       // setError(err.message);
@@ -89,7 +92,7 @@ const Login = () => {
           />
           <div>
             <button id="submit" type="submit">
-              <NavLink to="/home">Login</NavLink>
+              Login
             </button>
           </div>
         </form>

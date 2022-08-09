@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
     };
 
     const access = jwt.sign(payload, process.env.ACCESS_SECRET, {
-      expiresIn: "20m",
+      expiresIn: "3600s",
       jwtid: uuidv4(),
     });
 
@@ -71,8 +71,8 @@ router.post("/login", async (req, res) => {
     });
 
     const response = { access, refresh, id: payload.id };
-    console.log(response)
-    console.log("login successful")
+    console.log(response);
+    console.log("login successful");
     res.json(response);
   } catch (error) {
     console.log("POST /login", error);
@@ -124,6 +124,7 @@ router.get("/:id", auth, async (req, res) => {
         posts: true,
       },
     });
+    console.log(getUser);
     res.json(getUser);
   } catch (error) {
     console.log("GET/:id", error);
