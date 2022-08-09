@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import ReactContext from "../context/react-context";
+import ReactContext from "../context/reactcontext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -31,6 +31,7 @@ const Login = () => {
       },
       body: bod,
     };
+
     try {
       const res = await fetch("http://localhost:5002/user/login", options);
       console.log(res);
@@ -46,11 +47,13 @@ const Login = () => {
       console.log(data); // this returns both access and refresh tokens as part of the data object
       const access_token = data.access;
       const refresh_token = data.refresh;
+      const id = data.id;
       console.log(access_token);
       console.log(refresh_token);
       reactCtx.setAccess(access_token);
       reactCtx.setRefresh(refresh_token);
       reactCtx.setLoginEmail(email);
+      reactCtx.setId(id);
       reactCtx.setLoginState(true);
       navigate("/home");
       // alert("Logged in");
@@ -76,7 +79,7 @@ const Login = () => {
             onChange={handleEmail}
             required
           />
-          <br></br>
+          <br />
           <label>Password: </label>
           <input
             id="password"

@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
       jwtid: uuidv4(),
     });
 
-    const response = { access, refresh };
+    const response = { access, refresh, id: payload.id };
     res.json(response);
   } catch (error) {
     console.log("POST /login", error);

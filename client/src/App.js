@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import ReactContext from "./context/react-context";
+import ReactContext from "./context/reactcontext";
 
 const Landing = React.lazy(() => import("./pages/Landing"));
 const Register = React.lazy(() => import("./pages/Register"));
@@ -16,6 +16,7 @@ function App() {
   const [access, setAccess] = useState("");
   const [refresh, setRefresh] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
+  const [id, setId] = useState("");
   const [loginState, setLoginState] = useState(false);
 
   return (
@@ -28,6 +29,8 @@ function App() {
           setRefresh,
           loginEmail,
           setLoginEmail,
+          id,
+          setId,
           loginState,
           setLoginState,
         }}

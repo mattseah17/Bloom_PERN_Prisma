@@ -1,35 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import ReactContext from "../context/reactcontext";
 import PlantCards from "../components/Results";
 
 const Userhome = () => {
-  const initUserInfo = {
-    email: "",
-  };
-  const [userInfo, setUserInfo] = useState(initUserInfo);
+  const [userData, setUserData] = useState([]);
+  const reactCtx = useContext(ReactContext);
 
   useEffect(() => {
     async function getUserInfo() {
-      const url = `http://localhost:5002/user/${id}`;
+      const url = `http://localhost:5002/user/${reactCtx.id}`;
       const requestOptions = {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer`, //token,
+          authorization: `Bearer ${reactCtx.access}`,
         },
       };
       try {
         const response = await fetch(url, requestOptions);
         const data = await response.json();
-        setUserInfo({ email: data.email });
+        setUserData(data.posts);
       } catch (err) {
         console.log(err.message);
       }
     }
     getUserInfo();
-  }, []);
-
-  const navigate = useNavigate();
+  }, [reactCtx.id, reactCtx.access]);
 
   return (
     <>
@@ -37,13 +33,13 @@ const Userhome = () => {
         <div>
           <h1>My Dashboard</h1>
         </div>
-        <h2>Contact me at {userInfo.email}</h2>
+        <h2>Contact me at {reactCtx.loginEmail}</h2>
         <br />
-        {userInfo.posts.length === 0 ? (
+        {userData.length === 0 ? (
           <h2>You have not added any plants</h2>
         ) : (
           <div>
-            <PlantCards data={userInfo.posts} />
+            <PlantCards data={userData} />
           </div>
         )}
       </div>
