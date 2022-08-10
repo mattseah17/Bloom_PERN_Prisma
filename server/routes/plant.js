@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const auth = require("../middleware/auth");
 
-//Create new plant
+//Create a new plant
 router.post("/create", auth, async (req, res) => {
   try {
     const {
@@ -64,7 +64,7 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
-//Update plant
+//Update a plant
 router.patch("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
@@ -99,7 +99,7 @@ router.patch("/:id", auth, async (req, res) => {
   }
 });
 
-//Delete plant
+//Delete a plant
 router.delete("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
@@ -136,6 +136,42 @@ router.put("/:id", auth, async (req, res) => {
     res.status(401).json({
       status: "error",
       message: "plant action not created",
+    });
+  }
+});
+
+//Show plant actions
+router.get("/action/:id", auth, async (req, res) => {
+  try {
+    const { id } = req.params; //id here is plantId
+    const plantActions = await prisma.plant.findFirst({
+      where: { id: id },
+      select: { action: true },
+    });
+  } catch (error) {
+    console.log("GET/ plantAction", error);
+    res.status(401).json({
+      status: "error",
+      message: "plantActions not able to be fetched",
+    });
+  }
+});
+
+//Delete plant action
+router.delete("/action/:id", auth, async (req, res) => {
+  try {
+    const { id } = req.params; //id here is action id
+    const deletedAction = await prisma.action.delete({
+      where: {
+        id: id,
+      },
+    });
+    res.json(deletedAction);
+  } catch (error) {
+    console.log("DELETE/ plantaction", error);
+    res.status(401).json({
+      status: "error",
+      message: "plantAction not able to be deleted",
     });
   }
 });
