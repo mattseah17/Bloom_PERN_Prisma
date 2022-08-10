@@ -123,7 +123,7 @@ router.put("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const { type, action_date } = req.body;
-    const newAction = await prisma.plant.create({
+    const newAction = await prisma.action.create({
       data: {
         type,
         action_date,

@@ -5,7 +5,7 @@ import ActionCard from "./ActionCard";
 const PlantAction = (props) => {
   const [actionType, setActionType] = useState("");
   const [date, setDate] = useState("");
-  const [addedAction, setAddedAction] = useState("");
+  const [addedActionId, setAddedActionId] = useState("");
   const [actionArray, setActionArray] = useState([]);
   const reactCtx = useContext(ReactContext);
 
@@ -56,8 +56,8 @@ const PlantAction = (props) => {
 
     const response = await fetch(endpoint, options);
     const result = await response.json();
-    setAddedAction(result);
-    alert(`${addedAction.type} action was added`);
+    console.log(result);
+    setAddedActionId(result.id);
   };
 
   return (
@@ -100,7 +100,7 @@ const PlantAction = (props) => {
         </div>
       </div>
       <div>
-        <ActionCard actions={actionArray} actionId={addedAction.id} />
+        <ActionCard actions={actionArray} actionId={addedActionId} />
       </div>
     </>
   );

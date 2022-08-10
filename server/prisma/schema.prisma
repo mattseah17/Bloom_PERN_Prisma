@@ -38,7 +38,7 @@ model Plant {
 model Action {
   id          String   @id @default(uuid())
   type        String
-  action_date DateTime 
+  action_date String 
   plant       Plant    @relation(fields: [plantId], references: [id])
   plantId     String
 
