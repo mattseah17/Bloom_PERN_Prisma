@@ -17,21 +17,30 @@ const PlantAction = (props) => {
     setDate(e.target.value);
   };
 
+  const [isNotLoading, setIsNotLoading] = useState(false);
+
+  const getActionArray = async () => {
+    console.log(`calling getActionArray`);
+
+    const actionApi = `http://localhost:5002/plant/action/${props.plantId}`;
+    const res = await fetch(actionApi, {
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: `Bearer ${reactCtx.access}`,
+      },
+      method: "GET",
+    });
+    const plantActions = await res.json();
+    console.log(plantActions);
+    setActionArray(plantActions);
+
+    setIsNotLoading(true);
+  };
+
   useEffect(() => {
-    const getActionArray = async () => {
-      const actionApi = `http://localhost:5002/plant/action/${props.plantId}`;
-      const res = await fetch(actionApi, {
-        headers: {
-          "Content-Type": "Application/json",
-          Authorization: `Bearer ${reactCtx.access}`,
-        },
-        method: "GET",
-      });
-      const plantActions = await res.json();
-      setActionArray(plantActions);
-    };
+    console.log(`component is mounted`);
     getActionArray();
-  }, [actionArray]);
+  }, [addedActionId]);
 
   const handleSubmitAction = async (e) => {
     e.preventDefault();
@@ -100,7 +109,9 @@ const PlantAction = (props) => {
         </div>
       </div>
       <div>
-        <ActionCard actions={actionArray} actionId={addedActionId} />
+        {isNotLoading && (
+          <ActionCard actions={actionArray} actionId={addedActionId} />
+        )}
       </div>
     </>
   );

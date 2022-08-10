@@ -148,6 +148,7 @@ router.get("/action/:id", auth, async (req, res) => {
       where: { id: id },
       select: { action: true },
     });
+    res.json(plantActions);
   } catch (error) {
     console.log("GET/ plantAction", error);
     res.status(401).json({

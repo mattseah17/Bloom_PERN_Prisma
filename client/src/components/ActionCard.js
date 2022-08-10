@@ -4,6 +4,8 @@ import ReactContext from "../context/reactcontext";
 const ActionCard = ({ actions, actionId }) => {
   const reactCtx = useContext(ReactContext);
 
+  console.log(actions);
+
   const removeAction = async (e) => {
     e.preventDefault();
     const res = await fetch(`http://localhost:5002/plant/action/${actionId}`, {
@@ -17,7 +19,7 @@ const ActionCard = ({ actions, actionId }) => {
     alert(`${deletedAction.type} action is removed`);
   };
 
-  const actionArray = actions.map((action) => {
+  const actionArray = actions.action.map((action) => {
     return (
       <>
         <div id={action.id}>
@@ -32,6 +34,7 @@ const ActionCard = ({ actions, actionId }) => {
       </>
     );
   });
+
   return <div>{actionArray}</div>;
 };
 
