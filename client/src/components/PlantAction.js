@@ -100,7 +100,7 @@ const PlantAction = (props) => {
         </div>
       </div>
       <div>
-        <ActionCard actions={actionArray} actionId={addedAction.id}/>
+        <ActionCard actions={actionArray} actionId={addedAction.id} />
       </div>
     </>
   );
