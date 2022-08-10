@@ -103,12 +103,27 @@ router.patch("/:id", auth, async (req, res) => {
 router.delete("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
-    const deletePost = await prisma.plant.delete({
+    // const deletePost = await prisma.plant.delete({
+    //   where: {
+    //     id: id,
+    //   },
+    // });
+
+    const deleteAction = prisma.action.deleteMany({
+      where: {
+        plantId: id,
+      },
+    })
+    
+    const deletePlant = prisma.plant.delete({
       where: {
         id: id,
       },
-    });
-    res.json(deletePost);
+    })
+    
+    const transaction = await prisma.$transaction([deleteAction, deletePlant])
+    console.log(transaction)
+    // res.json(deletePost);
   } catch (error) {
     console.log("DELETE/ plant", error);
     res.status(401).json({
