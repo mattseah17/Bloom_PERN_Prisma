@@ -127,7 +127,7 @@ router.put("/:id", auth, async (req, res) => {
       data: {
         type,
         action_date,
-        plant: { connect: { id: id } }, //id is the plantId
+        plant: { connect: { id: id } }, //id value is the plantId
       },
     });
     res.json(newAction);

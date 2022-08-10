@@ -3,16 +3,43 @@ import ReactContext from "../context/reactcontext";
 import ActionCard from "./ActionCard";
 
 const PlantAction = (props) => {
-  const [action, setAction] = useState("");
+  const [actionType, setActionType] = useState("");
   const [date, setDate] = useState("");
+  const [addedAction, setAddedAction] = useState("");
   const reactCtx = useContext(ReactContext);
-  
-  const handleAction = (e) => {
-    setAction(e.target.value);
+
+  const handleActionType = (e) => {
+    setActionType(e.target.value);
   };
 
   const handleDate = (e) => {
     setDate(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      type: actionType,
+      action_date: date,
+      plantId: props.plantId,
+    };
+
+    const JSONdata = JSON.stringify(data);
+    const endpoint = `http://localhost:5002/plant/${props.plantId}`;
+
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${reactCtx.access}`,
+      },
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+    setAddedAction(result);
   };
 
   return (
@@ -23,13 +50,13 @@ const PlantAction = (props) => {
         </div>
         <br />
         <div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>Action Type</label>
             <select
               name="level"
-              value={action}
+              value={actionType}
               onChange={(e) => {
-                handleAction(e);
+                handleActionType(e);
               }}
               required
             >
@@ -48,11 +75,14 @@ const PlantAction = (props) => {
               }}
               required
             />
+            <div>
+              <button type="submit">Submit</button>
+            </div>
           </form>
         </div>
       </div>
       <div>
-        <ActionCard />
+        <ActionCard action={addedAction} />
       </div>
     </>
   );
