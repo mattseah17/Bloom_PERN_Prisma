@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import ReactContext from "../context/reactcontext";
 import ActionCard from "./ActionCard";
 
 const PlantAction = (props) => {
   const [actionType, setActionType] = useState("");
   const [date, setDate] = useState("");
-  const [addedActionId, setAddedActionId] = useState("");
+
   const [actionArray, setActionArray] = useState([]);
   const reactCtx = useContext(ReactContext);
 
@@ -17,41 +17,40 @@ const PlantAction = (props) => {
     setDate(e.target.value);
   };
 
-  const [isNotLoading, setIsNotLoading] = useState(false);
+  // const [isNotLoading, setIsNotLoading] = useState(false);
 
-  const getActionArray = async () => {
-    console.log(`calling getActionArray`);
+  // const getActionArray = async () => {
+  //   console.log(`calling getActionArray`);
 
-    const actionApi = `http://localhost:5002/plant/action/${props.plantId}`;
-    const res = await fetch(actionApi, {
-      headers: {
-        "Content-Type": "Application/json",
-        Authorization: `Bearer ${reactCtx.access}`,
-      },
-      method: "GET",
-    });
-    const plantActions = await res.json();
-    console.log(plantActions);
-    setActionArray(plantActions);
+  //   const actionApi = `http://localhost:5002/plant/action/${props.plantId}`;
+  //   const res = await fetch(actionApi, {
+  //     headers: {
+  //       "Content-Type": "Application/json",
+  //       Authorization: `Bearer ${reactCtx.access}`,
+  //     },
+  //     method: "GET",
+  //   });
+  //   const plantActions = await res.json();
+  //   console.log(plantActions);
+  //   setActionArray(plantActions);
 
-    setIsNotLoading(true);
-  };
+  //   setIsNotLoading(true);
+  // };
 
-  useEffect(() => {
-    console.log(`component is mounted`);
-    getActionArray();
-  }, [addedActionId]);
+  // useEffect(() => {
+  //   console.log(`component is mounted`);
+  //   getActionArray();
+  // }, [addedActionId]);
 
-  const handleSubmitAction = async (e) => {
+  const handleAddAction = async (e) => {
     e.preventDefault();
-
     const data = {
       type: actionType,
       action_date: date,
       plantId: props.plantId,
     };
-
     const JSONdata = JSON.stringify(data);
+
     const endpoint = `http://localhost:5002/plant/${props.plantId}`;
 
     const options = {
@@ -66,7 +65,22 @@ const PlantAction = (props) => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     console.log(result);
-    setAddedActionId(result.id);
+    setActionArray([...actionArray, result]);
+  };
+
+  const removeAction = async (actionId) => {
+    // e.preventDefault();
+    const res = await fetch(`http://localhost:5002/plant/action/${actionId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${reactCtx.access}`,
+      },
+    });
+    const deletedAction = await res.json();
+    const actionArr = actionArray.filter((action) => action.id !== actionId);
+    setActionArray(actionArr);
+    alert(`${deletedAction.type} action is removed`);
   };
 
   return (
@@ -77,7 +91,7 @@ const PlantAction = (props) => {
         </div>
         <br />
         <div>
-          <form onSubmit={handleSubmitAction}>
+          <form onSubmit={handleAddAction}>
             <label>Action Type</label>
             <select
               name="level"
@@ -109,9 +123,7 @@ const PlantAction = (props) => {
         </div>
       </div>
       <div>
-        {isNotLoading && (
-          <ActionCard actions={actionArray} actionId={addedActionId} />
-        )}
+        <ActionCard actions={actionArray} remove={removeAction} />
       </div>
     </>
   );

@@ -145,7 +145,7 @@ router.put("/:id", auth, async (req, res) => {
 //Show plant actions
 router.get("/action/:id", auth, async (req, res) => {
   try {
-    const { id } = req.params; //id here is plantId
+    const { id } = req.params; //id here ˜is plantId
     const plantActions = await prisma.plant.findFirst({
       where: { id: id },
       select: { action: true },
