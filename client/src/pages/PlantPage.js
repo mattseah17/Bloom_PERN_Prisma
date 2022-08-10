@@ -38,7 +38,7 @@ const PlantPage = () => {
       },
     });
     const deletedPlant = await res.json();
-    alert(`${deletedPlant.name} is removed`);
+    console.log(deletedPlant);
     navigate("/home");
   };
 
@@ -69,7 +69,7 @@ const PlantPage = () => {
           </button>
         </div>
       </div>
-      <PlantAction plantId={id}/>
+      <PlantAction plantId={id} />
     </>
   );
 };

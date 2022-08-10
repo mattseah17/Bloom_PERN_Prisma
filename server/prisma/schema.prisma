@@ -39,7 +39,7 @@ model Action {
   id          String   @id @default(uuid())
   type        String
   action_date String 
-  plant       Plant?    @relation(fields: [plantId], references: [id])
+  plant       Plant?    @relation(fields: [plantId], references: [id], onDelete: Cascade)
   plantId     String
 
 }

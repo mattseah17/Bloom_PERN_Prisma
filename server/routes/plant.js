@@ -103,27 +103,13 @@ router.patch("/:id", auth, async (req, res) => {
 router.delete("/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
-    // const deletePost = await prisma.plant.delete({
-    //   where: {
-    //     id: id,
-    //   },
-    // });
-
-    const deleteAction = prisma.action.deleteMany({
-      where: {
-        plantId: id,
-      },
-    })
-    
-    const deletePlant = prisma.plant.delete({
+    const deletePost = await prisma.plant.delete({
       where: {
         id: id,
       },
-    })
-    
-    const transaction = await prisma.$transaction([deleteAction, deletePlant])
-    console.log(transaction)
-    // res.json(deletePost);
+    });
+    console.log(deletePost);
+    res.json(deletePost);
   } catch (error) {
     console.log("DELETE/ plant", error);
     res.status(401).json({
@@ -145,6 +131,7 @@ router.put("/:id", auth, async (req, res) => {
         plant: { connect: { id: id } }, //id value is the plantId
       },
     });
+    console.log(newAction)
     res.json(newAction);
   } catch (error) {
     console.log("POST/create action", error);

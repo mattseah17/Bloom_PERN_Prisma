@@ -3,7 +3,6 @@ import ReactContext from "../context/reactcontext";
 
 const ActionCard = ({ actions, actionId }) => {
   const reactCtx = useContext(ReactContext);
-
   console.log(actions);
 
   const removeAction = async (e) => {
