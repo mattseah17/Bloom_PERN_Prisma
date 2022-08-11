@@ -67,7 +67,7 @@ const Login = () => {
       <div class="absolute top-40 left-40">
         <h1 class="font-body text-5xl">Login to your account</h1>
         <form onSubmit={handleLogin}>
-          <div class="mb-6">
+          <div class="mb-5">
             <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Email:{" "}
             </label>
@@ -81,7 +81,7 @@ const Login = () => {
               required
             />
           </div>
-          <div class="mb-6">
+          <div class="mb-5">
             <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Password:{" "}
             </label>

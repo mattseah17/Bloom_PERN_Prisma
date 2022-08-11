@@ -89,9 +89,12 @@ const UpdatePlant = () => {
         <div>
           <form onSubmit={updatePlant}>
             <div>
-              <div>
-                <label>Plant name </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Plant name{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="plantname"
                   name="plantname"
                   onChange={(e) => {
@@ -103,9 +106,12 @@ const UpdatePlant = () => {
                   required
                 />
               </div>
-              <div>
-                <label>Plant description </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Plant description{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="description"
                   name="description"
                   onChange={(e) => {
@@ -116,9 +122,12 @@ const UpdatePlant = () => {
                   value={description}
                 />
               </div>
-              <div>
-                <label>Plant type </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Plant type{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="type"
                   name="type"
                   onChange={(e) => {
@@ -129,9 +138,12 @@ const UpdatePlant = () => {
                   value={type}
                 />
               </div>
-              <div>
-                <label>Location </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Location{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="location"
                   name="location"
                   onChange={(e) => {
@@ -142,9 +154,12 @@ const UpdatePlant = () => {
                   value={location}
                 />
               </div>
-              <div>
-                <label>Water Frequency </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Water Frequency{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="waterFreq"
                   name="waterFreq"
                   onChange={(e) => {
@@ -155,9 +170,12 @@ const UpdatePlant = () => {
                   value={waterFreq}
                 />
               </div>
-              <div>
-                <label>Fertiliser Frequency </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Fertiliser Frequency{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="fertiliseFreq"
                   name="fertiliseFreq"
                   onChange={(e) => {
@@ -168,9 +186,12 @@ const UpdatePlant = () => {
                   value={fertiliseFreq}
                 />
               </div>
-              <div>
-                <label>Re-pot Frequency </label>
+              <div class="mb-5">
+                <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Re-pot Frequency{" "}
+                </label>
                 <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   id="repotFreq"
                   name="repotFreq"
                   onChange={(e) => {
@@ -181,7 +202,12 @@ const UpdatePlant = () => {
                   value={repotFreq}
                 />
               </div>
-              <button type="submit">Update</button>
+              <button
+                class="font-body2 text-gray-100 bg-black border border-gray-300 focus:outline-none hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-8"
+                type="submit"
+              >
+                Update
+              </button>
             </div>
           </form>
         </div>

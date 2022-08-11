@@ -54,7 +54,7 @@ const Register = () => {
         <h1 class="font-body text-5xl">Register an account</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <div class="mb-6">
+            <div class="mb-5">
               <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Email:{" "}
               </label>
@@ -69,7 +69,7 @@ const Register = () => {
                 required
               />
             </div>
-            <div class="mb-6">
+            <div class="mb-5">
               <label class="font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Password:{" "}
               </label>
@@ -84,7 +84,7 @@ const Register = () => {
                 required
               />
             </div>
-            <div>
+            <div class="mb-5">
               <label class="font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Username:{" "}
               </label>
@@ -99,7 +99,7 @@ const Register = () => {
                 required
               />
             </div>
-            <div>
+            <div class="mb-5">
               <label class="mt-5 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Tell us about yourself:{" "}
               </label>

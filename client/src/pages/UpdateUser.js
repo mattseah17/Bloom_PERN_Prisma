@@ -76,8 +76,8 @@ const UpdateUser = () => {
         <h1 class="font-body text-5xl">Update Personal Details</h1>
         <form onSubmit={updatePersonal}>
           <div>
-            <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <div class="mb-5">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Email{" "}
               </label>
               <input
@@ -91,8 +91,8 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <div class="mb-5">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Password{" "}
               </label>
               <input
@@ -106,8 +106,8 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <div class="mb-5">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Username{" "}
               </label>
               <input
@@ -121,8 +121,8 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <div class="mb-5">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Bio{" "}
               </label>
               <textarea
@@ -139,7 +139,7 @@ const UpdateUser = () => {
           </div>
           <div>
             <button
-              class="font-body2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-8"
+              class="font-body2 text-gray-100 bg-black border border-gray-300 focus:outline-none hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-4"
               type="submit"
               onClick={updatePersonal}
             >
