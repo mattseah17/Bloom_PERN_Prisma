@@ -44,33 +44,37 @@ const PlantPage = () => {
 
   return (
     <>
-      <div id={id}>
+      <div class="absolute top-40 left-40" id={id}>
         <div>
-          <h2>{plant.name}</h2>
+          <h2 class="font-body text-5xl mb-5">{plant.name}</h2>
         </div>
         <div>
-          <img src={plant.image} alt="plant_image" />
+          <img class="rounded-md w-1/2" src={plant.image} alt="plant_image" />
         </div>
-        <div>
-          <p>{plant.description}</p>
-          <p>{plant.type}</p>
-          <p>{plant.location}</p>
-          <p>{plant.water_req}</p>
-          <p>{plant.fertilise_freq}</p>
-          <p>{plant.repot_freq}</p>
+        <div class="mt-1">
+          <p class="font-body2 text-lg">Description: {plant.description}</p>
+          <p class="font-body2 text-lg">Type: {plant.type}</p>
+          <p class="font-body2 text-lg">Location: {plant.location}</p>
+          <p class="font-body2 text-lg">Water frequency: {plant.water_req}</p>
+          <p class="font-body2 text-lg">
+            Fertilise frequency: {plant.fertilise_freq}
+          </p>
+          <p class="font-body2 text-lg">Re-pot frequency: {plant.repot_freq}</p>
         </div>
-        <div>
-          <button onClick={goUpdatePlantPage}>Edit</button>
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              deletePlant();
-            }}
-          >
-            Delete
-          </button>
-        </div>
+        <button
+          class="inline font-body2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-1"
+          onClick={goUpdatePlantPage}
+        >
+          Edit
+        </button>
+        <button
+          class="inline font-body2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-1"
+          onClick={() => {
+            deletePlant();
+          }}
+        >
+          Delete
+        </button>
       </div>
       <PlantAction plantId={id} />
     </>
