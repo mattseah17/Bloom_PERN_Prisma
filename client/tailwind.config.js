@@ -8,7 +8,11 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ["Alegreya"],
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

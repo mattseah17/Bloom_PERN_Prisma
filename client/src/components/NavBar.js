@@ -24,10 +24,14 @@ const NavBar = () => {
   return (
     <>
       <header>
-        <nav className="bg-green-800 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
-          <div className="container flex flex-wrap justify-between items-center mx-auto">
-            <img src="" class="mr-3 h-6 sm:h-9" alt="Bloom Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+        <nav className="bg-white flex border-gray-200 pt-5 pb-5 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+          <div className="container flex flex-wrap items-center mx-auto">
+            <img
+              src="https://cdn-icons.flaticon.com/png/512/3968/premium/3968242.png?token=exp=1660199396~hmac=1fee401bf92b74220d7dbd4e38497e48"
+              class="mr-3 h-6 sm:h-9"
+              alt="Bloom Logo"
+            />
+            <span className="text-yellow-800 font-body self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
               Bloom
             </span>
 
@@ -39,20 +43,26 @@ const NavBar = () => {
                 >
                   <ul>
                     <li>
-                      <NavLink to="/home" className="flex mb-2 hover:scale-105">
+                      <NavLink
+                        to="/home"
+                        className="flex font-body text-white mb-2 hover:scale-105"
+                      >
                         Home
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
                         to="/update"
-                        className="flex mb-2 hover:scale-105"
+                        className="flex font-body text-white mb-2 hover:scale-105"
                       >
                         Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/add" className="flex mb-2 hover:scale-105">
+                      <NavLink
+                        to="/add"
+                        className="flex font-body text-white mb-2 hover:scale-105"
+                      >
                         Add Plant
                       </NavLink>
                     </li>
@@ -65,10 +75,20 @@ const NavBar = () => {
             ) : (
               <>
                 <div>
-                  <button onClick={handleLoginClick}>Login</button>
+                  <button
+                    className="absolute top-4 right-0 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 justify-end"
+                    onClick={handleLoginClick}
+                  >
+                    Login
+                  </button>
                 </div>
                 <div>
-                  <button onClick={handleRegisterClick}>Register</button>
+                  <button
+                    className="absolute top-4 right-20 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-6 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 justify-end"
+                    onClick={handleRegisterClick}
+                  >
+                    Register
+                  </button>
                 </div>
               </>
             )}

@@ -5,10 +5,10 @@ const Landing = () => {
     <>
       <div>
         <div>
-          <h1>Bloom</h1>
+          <h1 class="font-body text-yellow-800 text-8xl">Bloom</h1>
         </div>
         <div>
-          <p>Blah blah</p>
+          <p className="text-5xl">Blah blah</p>
         </div>
       </div>
     </>
