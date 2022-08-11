@@ -40,8 +40,8 @@ const Userhome = () => {
         </div>
         <div>
           <h2 class="font-body text-5xl font-bold mt-10">About Me</h2>
-          <p class="text-lg text-gray-700 font-body2 mb-2 mt-2">{bio}</p>
-          <h2 class="text-lg text-gray-700 font-body2 mb-2 mt-2">
+          <p class="text-lg text-gray-700 font-body2 mb-2 mt-4">{bio}</p>
+          <h2 class="text-lg text-gray-700 font-body2 mb-2 mt-3">
             Contact me at {reactCtx.loginEmail}
           </h2>
         </div>

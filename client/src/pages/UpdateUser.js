@@ -72,66 +72,82 @@ const UpdateUser = () => {
 
   return (
     <>
-      <div>
-        <h1>Update Personal Details</h1>
+      <div class="absolute top-40 left-40">
+        <h1 class="font-body text-5xl">Update Personal Details</h1>
+        <form onSubmit={updatePersonal}>
+          <div>
+            <div class="mb-6">
+              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Email{" "}
+              </label>
+              <input
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={email}
+                onChange={(e) => {
+                  handleEmail(e);
+                }}
+              />
+            </div>
+            <div class="mb-6">
+              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Password{" "}
+              </label>
+              <input
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                type="text"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={(e) => {
+                  handlePassword(e);
+                }}
+              />
+            </div>
+            <div class="mb-6">
+              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Username{" "}
+              </label>
+              <input
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={username}
+                onChange={(e) => {
+                  handleUsername(e);
+                }}
+              />
+            </div>
+            <div class="mb-6">
+              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Bio{" "}
+              </label>
+              <textarea
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                type="text"
+                placeholder="About yourself"
+                name="address"
+                value={bio}
+                onChange={(e) => {
+                  handleBio(e);
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <button
+              class="font-body2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-8"
+              type="submit"
+              onClick={updatePersonal}
+            >
+              Update
+            </button>
+          </div>
+        </form>
       </div>
-      <form onSubmit={updatePersonal}>
-        <div>
-          <div>
-            <label>Email </label>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={email}
-              onChange={(e) => {
-                handleEmail(e);
-              }}
-            />
-          </div>
-          <div>
-            <label>Password </label>
-            <input
-              type="text"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={(e) => {
-                handlePassword(e);
-              }}
-            />
-          </div>
-          <div>
-            <label>Username </label>
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              value={username}
-              onChange={(e) => {
-                handleUsername(e);
-              }}
-            />
-          </div>
-          <div>
-            <label>Bio </label>
-            <input
-              type="text"
-              placeholder="About yourself"
-              name="address"
-              value={bio}
-              onChange={(e) => {
-                handleBio(e);
-              }}
-            />
-          </div>
-        </div>
-        <div>
-          <button type="submit" onClick={updatePersonal}>
-            Update
-          </button>
-        </div>
-      </form>
     </>
   );
 };
