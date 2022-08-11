@@ -85,45 +85,56 @@ const PlantAction = (props) => {
 
   return (
     <>
-      <div>
-        <div>
-          <h1>Add Action</h1>
-        </div>
-        <br />
+      <div class="absolute top-40 right-80">
+        <h1 class="font-body text-5xl mb-5">Add Action</h1>
         <div>
           <form onSubmit={handleAddAction}>
-            <label>Action Type</label>
-            <select
-              name="level"
-              value={actionType}
-              onChange={(e) => {
-                handleActionType(e);
-              }}
-              required
-            >
-              <option value="null"> </option>
-              <option value="water">Water</option>
-              <option value="fertilise">Fertilise</option>
-              <option value="repot">Re-pot</option>
-            </select>
-            <br />
-            <label>Date</label>
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => {
-                handleDate(e);
-              }}
-              required
-            />
             <div>
-              <button type="submit">Add action</button>
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                Action Type
+              </label>
+              <select
+                class="rounded-lg"
+                name="level"
+                value={actionType}
+                onChange={(e) => {
+                  handleActionType(e);
+                }}
+                required
+              >
+                <option value="null"> </option>
+                <option value="water">Water</option>
+                <option value="fertilise">Fertilise</option>
+                <option value="repot">Re-pot</option>
+              </select>
+            </div>
+            <div>
+              <label class="mt-5 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                Date
+              </label>
+              <input
+                class="rounded-lg"
+                type="date"
+                value={date}
+                onChange={(e) => {
+                  handleDate(e);
+                }}
+                required
+              />
+            </div>
+            <div>
+              <button
+                class="font-body2 text-gray-100 bg-black border border-gray-300 focus:outline-none hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-4"
+                type="submit"
+              >
+                Add action
+              </button>
             </div>
           </form>
         </div>
-      </div>
-      <div>
-        <ActionCard actions={actionArray} remove={removeAction} />
+        <div class="">
+          <ActionCard actions={actionArray} remove={removeAction} />
+        </div>
       </div>
     </>
   );
