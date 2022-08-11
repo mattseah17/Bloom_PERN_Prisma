@@ -46,7 +46,7 @@ const PlantPage = () => {
     <>
       <div class="absolute top-40 left-40" id={id}>
         <div>
-          <h2 class="font-body text-5xl mb-5">{plant.name}</h2>
+          <h2 class="font-body text-5xl mb-5 font-semibold">{plant.name}</h2>
         </div>
         <div>
           <img class="rounded-md w-1/2" src={plant.image} alt="plant_image" />

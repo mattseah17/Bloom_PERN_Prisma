@@ -86,7 +86,7 @@ const PlantAction = (props) => {
   return (
     <>
       <div class="absolute top-40 right-80 w-1/3">
-        <h1 class="font-body text-5xl mb-5">Add Action</h1>
+        <h1 class="font-body text-5xl mb-5 font-semibold">Add Action</h1>
         <div>
           <form onSubmit={handleAddAction}>
             <div>

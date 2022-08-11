@@ -74,7 +74,7 @@ const AddPlant = () => {
   return (
     <>
       <div class="absolute top-40 left-40">
-        <h1 class="font-body text-5xl">Add A New Plant</h1>
+        <h1 class="font-body text-5xl font-semibold">Add A New Plant</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <div class="mb-5">

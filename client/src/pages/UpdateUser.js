@@ -73,7 +73,9 @@ const UpdateUser = () => {
   return (
     <>
       <div class="absolute top-40 left-40">
-        <h1 class="font-body text-5xl">Update Personal Details</h1>
+        <h1 class="font-body text-5xl font-semibold">
+          Update Personal Details
+        </h1>
         <form onSubmit={updatePersonal}>
           <div>
             <div class="mb-3">
