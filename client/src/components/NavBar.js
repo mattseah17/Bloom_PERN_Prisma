@@ -31,20 +31,20 @@ const NavBar = () => {
               class="mr-3 h-6 sm:h-9"
               alt="Bloom Logo"
             />
-            <span className="text-yellow-800 font-body self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="text-yellow-800 font-body self-center text-4xl font-semibold whitespace-nowrap dark:text-white">
               Bloom
             </span>
 
             {reactCtx.loginState ? (
               <>
                 <div class="ml-20 flex justify-around">
-                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
                     <NavLink to="/home">Home</NavLink>
                   </div>
-                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
                     <NavLink to="/update">Profile</NavLink>
                   </div>
-                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
                     <NavLink to="/add">Add Plant</NavLink>
                   </div>
                   <div>

@@ -78,7 +78,7 @@ const AddPlant = () => {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Plant name{" "}
               </label>
               <input
@@ -95,7 +95,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Plant description{" "}
               </label>
               <input
@@ -111,7 +111,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Plant type{" "}
               </label>
               <input
@@ -127,7 +127,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Location{" "}
               </label>
               <input
@@ -143,7 +143,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Water Frequency{" "}
               </label>
               <input
@@ -159,7 +159,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Fertiliser Frequency{" "}
               </label>
               <input
@@ -175,7 +175,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Re-pot Frequency{" "}
               </label>
               <input
@@ -191,7 +191,7 @@ const AddPlant = () => {
               />
             </div>
             <div class="mb-6">
-              <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Image{" "}
               </label>
               <input
