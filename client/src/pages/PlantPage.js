@@ -49,6 +49,9 @@ const PlantPage = () => {
           <h2>{plant.name}</h2>
         </div>
         <div>
+          <img src={plant.image} alt="plant_image" />
+        </div>
+        <div>
           <p>{plant.description}</p>
           <p>{plant.type}</p>
           <p>{plant.location}</p>

@@ -10,6 +10,7 @@ const AddPlant = () => {
   const [waterFreq, setWaterfreq] = useState("");
   const [fertiliseFreq, setFertilisefreq] = useState("");
   const [repotFreq, setRepotfreq] = useState("");
+  const [image, setImage] = useState("");
 
   const reactCtx = useContext(ReactContext);
   const navigate = useNavigate();
@@ -35,6 +36,9 @@ const AddPlant = () => {
   const handleRepot = (e) => {
     setRepotfreq(e.target.value);
   };
+  const handleImage = (e) => {
+    setImage(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +50,7 @@ const AddPlant = () => {
       water_freq: waterFreq,
       fertilise_freq: fertiliseFreq,
       repot_freq: repotFreq,
+      image: image,
       userId: reactCtx.id,
     };
 
@@ -162,6 +167,19 @@ const AddPlant = () => {
                 type="text"
                 placeholder="How often does it need to be re-potted?"
                 value={repotFreq}
+              />
+            </div>
+            <div>
+              <label>Image </label>
+              <input
+                id="image"
+                name="image"
+                onChange={(e) => {
+                  handleImage(e);
+                }}
+                type="text"
+                placeholder="Any image?"
+                value={image}
               />
             </div>
             <button>Add plant</button>

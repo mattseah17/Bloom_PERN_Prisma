@@ -17,7 +17,7 @@ const PlantArray = (props) => {
           }}
         >
           <div id={d.id} key={d.id}>
-            {/* <img src={d.image} alt="" /> */}
+            <img src={d.image} alt="plant_image" />
           </div>
           <div>
             <h5>{d.name}</h5>
