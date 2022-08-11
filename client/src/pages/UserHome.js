@@ -32,18 +32,24 @@ const Userhome = () => {
 
   return (
     <>
-      <div>
+      <div class="absolute top-40 left-40">
         <div>
-          <h1>My Dashboard</h1>
+          <h1 class="font-body text-6xl font-bold text-yellow-800">
+            My Dashboard
+          </h1>
         </div>
         <div>
-          <h2>About Me</h2>
-          <p>{bio}</p>
+          <h2 class="font-body text-5xl font-bold mt-10">About Me</h2>
+          <p class="text-lg text-gray-700 font-body2 mb-2 mt-2">{bio}</p>
+          <h2 class="text-lg text-gray-700 font-body2 mb-2 mt-2">
+            Contact me at {reactCtx.loginEmail}
+          </h2>
         </div>
-        <h2>Contact me at {reactCtx.loginEmail}</h2>
         <br />
         {userPlants.length === 0 ? (
-          <h2>You have not added any plants</h2>
+          <h2 class="text-lg text-gray-700 font-body2 mb-2 mt-2">
+            You have not added any plants
+          </h2>
         ) : (
           <div>
             <PlantArray data={userPlants} />

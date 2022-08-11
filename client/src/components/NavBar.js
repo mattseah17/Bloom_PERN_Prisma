@@ -25,7 +25,7 @@ const NavBar = () => {
     <>
       <header>
         <nav class="bg-white flex border-gray-200 pt-5 pb-5 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
-          <div className="container flex flex-wrap items-center mx-auto">
+          <div className="container flex items-center mx-auto">
             <img
               src="https://cdn-icons.flaticon.com/png/512/3968/premium/3968242.png?token=exp=1660199396~hmac=1fee401bf92b74220d7dbd4e38497e48"
               class="mr-3 h-6 sm:h-9"
@@ -37,39 +37,24 @@ const NavBar = () => {
 
             {reactCtx.loginState ? (
               <>
-                <div
-                  className="hidden w-full md:block md:w-auto"
-                  id="navbar-default"
-                >
-                  <ul>
-                    <li>
-                      <NavLink
-                        to="/home"
-                        className="flex font-body text-white mb-2 hover:scale-105"
-                      >
-                        Home
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/update"
-                        className="flex font-body text-white mb-2 hover:scale-105"
-                      >
-                        Profile
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/add"
-                        className="flex font-body text-white mb-2 hover:scale-105"
-                      >
-                        Add Plant
-                      </NavLink>
-                    </li>
-                    <div>
-                      <button onClick={handleLogoutClick}>Log Out</button>
-                    </div>
-                  </ul>
+                <div class="ml-20 flex justify-around">
+                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                    <NavLink to="/home">Home</NavLink>
+                  </div>
+                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                    <NavLink to="/update">Profile</NavLink>
+                  </div>
+                  <div className="inline ml-10 mr-10 font-body text-lg text-gray-700 mb-1 hover:scale-110">
+                    <NavLink to="/add">Add Plant</NavLink>
+                  </div>
+                  <div>
+                    <button
+                      className="absolute font-body2 top-4 right-20 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-6 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 justify-end"
+                      onClick={handleLogoutClick}
+                    >
+                      Log Out
+                    </button>
+                  </div>
                 </div>
               </>
             ) : (
