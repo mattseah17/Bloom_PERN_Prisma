@@ -22,6 +22,7 @@ router.post("/create", auth, async (req, res) => {
       water_freq,
       fertilise_freq,
       repot_freq,
+      image,
       userId,
     } = req.body;
 
@@ -34,6 +35,7 @@ router.post("/create", auth, async (req, res) => {
         water_freq,
         fertilise_freq,
         repot_freq,
+        image,
         author: { connect: { id: userId } },
       },
     });
@@ -131,7 +133,7 @@ router.put("/:id", auth, async (req, res) => {
         plant: { connect: { id: id } }, //id value is the plantId
       },
     });
-    console.log(newAction)
+    console.log(newAction);
     res.json(newAction);
   } catch (error) {
     console.log("POST/create action", error);
