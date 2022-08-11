@@ -10,8 +10,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Alegreya"],
+        body: ["Italiana"],
+        body2: ["Roboto"],
       },
+      fontSize: {
+        vl: "75px"
+      }
     },
   },
   plugins: [require("flowbite/plugin")],

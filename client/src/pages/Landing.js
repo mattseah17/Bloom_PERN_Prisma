@@ -3,12 +3,12 @@ import React from "react";
 const Landing = () => {
   return (
     <>
-      <div>
+      <div className="relative flex items-center">
         <div>
-          <h1 class="font-body text-yellow-800 text-8xl">Bloom</h1>
+          <h1 className="font-body text-vl text-yellow-800">Bloom</h1>
         </div>
         <div>
-          <p className="text-5xl">Blah blah</p>
+          <p className="font-body2 text-yellow-200">Hello</p>
         </div>
       </div>
     </>
