@@ -21,7 +21,7 @@ const PlantArray = (props) => {
             <img src={d.image} alt="plant_image" />
           </div>
           <div>
-            <h5 class="text-lg text-gray-700 font-body mb-2 mt-2 text-center">
+            <h5 class="text-xl text-gray-700 font-body mb-2 mt-2 text-center">
               {d.name}
             </h5>
           </div>

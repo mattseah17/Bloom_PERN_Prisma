@@ -38,13 +38,13 @@ const NavBar = () => {
             {reactCtx.loginState ? (
               <>
                 <div class="ml-20 flex justify-around">
-                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110 font-semibold">
                     <NavLink to="/home">Home</NavLink>
                   </div>
-                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110 font-semibold">
                     <NavLink to="/update">Profile</NavLink>
                   </div>
-                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110">
+                  <div className="inline ml-10 mr-10 font-body text-xl text-gray-700 hover:scale-110 font-semibold">
                     <NavLink to="/add">Add Plant</NavLink>
                   </div>
                   <div>
