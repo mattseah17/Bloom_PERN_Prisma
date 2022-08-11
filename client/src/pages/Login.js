@@ -64,35 +64,44 @@ const Login = () => {
 
   return (
     <>
-      <div>
-        <h1>Login to your account</h1>
-      </div>
-      <div>
+      <div class="absolute top-40 left-40">
+        <h1 class="font-body text-5xl">Login to your account</h1>
         <form onSubmit={handleLogin}>
-          <label>Email: </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="email"
-            value={email}
-            onChange={handleEmail}
-            required
-          />
-          <br />
-          <label>Password: </label>
-          <input
-            id="password"
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={handlePassword}
-            required
-          />
-          <div>
-            <button id="submit" type="submit">
-              Login
-            </button>
+          <div class="mb-6">
+            <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              Email:{" "}
+            </label>
+            <input
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              id="email"
+              type="email"
+              placeholder="email"
+              value={email}
+              onChange={handleEmail}
+              required
+            />
           </div>
+          <div class="mb-6">
+            <label class="mt-10 font-body2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              Password:{" "}
+            </label>
+            <input
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              id="password"
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={handlePassword}
+              required
+            />
+          </div>
+          <button
+            class="font-body2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-5 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 mt-3"
+            id="submit"
+            type="submit"
+          >
+            Login
+          </button>
         </form>
       </div>
     </>
