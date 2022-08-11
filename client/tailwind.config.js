@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./src/components/*.{js,jsx}",
     "./src/App.js",
+    "./src/pages/*.{js,jsx}",
     "./public/index.html",
     "node_modules/flowbite-react/**/*.{js,jsx}",
   ],
@@ -14,8 +15,8 @@ module.exports = {
         body2: ["Roboto"],
       },
       fontSize: {
-        vl: "75px"
-      }
+        vl: "75px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
