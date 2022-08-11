@@ -5,10 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-
-
 body {
-  background: url(/Users/mattseah/Documents/GitHub/Bloom_draft/client/public/images/plantbackground.png);
+  background: url(/Users/mattseah/Documents/GitHub/Bloom_draft/client/public/images/plantbackground2.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

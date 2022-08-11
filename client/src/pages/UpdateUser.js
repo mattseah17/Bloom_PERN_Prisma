@@ -76,7 +76,7 @@ const UpdateUser = () => {
         <h1 class="font-body text-5xl">Update Personal Details</h1>
         <form onSubmit={updatePersonal}>
           <div>
-            <div class="mb-5">
+            <div class="mb-3">
               <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Email{" "}
               </label>
@@ -91,7 +91,7 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
               <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Password{" "}
               </label>
@@ -106,7 +106,7 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
               <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Username{" "}
               </label>
@@ -121,7 +121,7 @@ const UpdateUser = () => {
                 }}
               />
             </div>
-            <div class="mb-5">
+            <div class="mb-3">
               <label class="mt-10 font-body2 block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">
                 Bio{" "}
               </label>
