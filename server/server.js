@@ -14,8 +14,7 @@ app.use("/user", user);
 const plant = require("./routes/plant");
 app.use("/plant", plant);
 
-
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT}`);
 });

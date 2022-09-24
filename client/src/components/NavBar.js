@@ -27,7 +27,7 @@ const NavBar = () => {
         <nav class="fixed w-full z-20 bg-white flex border-gray-200 pt-5 pb-5 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
           <div className="container flex items-center mx-auto">
             <img
-              src="https://cdn-icons.flaticon.com/png/512/3968/premium/3968242.png?token=exp=1660199396~hmac=1fee401bf92b74220d7dbd4e38497e48"
+              src="https://cdn-icons-png.flaticon.com/512/3968/3968242.png"
               class="mr-3 h-6 sm:h-9"
               alt="Bloom Logo"
             />
