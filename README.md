@@ -14,7 +14,7 @@ This is a plant tracker/ social media app for plant enthusiasts. I tend to forge
 
 ### Wireframes
 
-![My wireframe](/Users/mattseah/Documents/GitHub/Bloom_draft/client/public/images/p4wireframe.png)
+![My wireframe](../images/p4wireframe.png)
 
 ### User Stories
 
