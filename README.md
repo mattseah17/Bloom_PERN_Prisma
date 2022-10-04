@@ -16,6 +16,16 @@ This is a plant tracker/ social media app for plant enthusiasts. I tend to forge
 
 ![My wireframe](client/public/images/p4wireframe.png)
 
+### Snippets
+
+![Homepage](client/public/images/homepage.png)
+
+![loggedin](client/public/images/loggedinpage.png)
+
+![Plant actions](client/public/images/plantaction.png)
+
+![Update details](client/public/images/updatedetails.png)
+
 ### User Stories
 
 Users should be able to:
